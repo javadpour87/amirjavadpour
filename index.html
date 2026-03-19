@@ -4,1267 +4,1020 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Amir Javadpour | Cybersecurity Researcher</title>
-  <meta name="description" content="Amir Javadpour — Senior Cybersecurity Researcher working on moving target defense, DDoS mitigation, 5G/6G security, cloud-edge trust, service mesh protection, cyber deception, and intelligent network defense." />
-  <meta name="theme-color" content="#f7fafc" />
+  <meta name="description" content="Amir Javadpour — Senior Cybersecurity Researcher focused on IoT security, moving target defense, cyber deception, 5G/6G resilience, secure cloud-edge systems, and intelligent cyber defense." />
+  <meta name="theme-color" content="#f6f8fc" />
   <style>
     :root{
-      --bg:#f7fafc;
-      --bg-soft:#eef4fb;
-      --panel:rgba(255,255,255,.82);
+      --bg:#f6f8fc;
+      --bg-soft:#edf2fb;
+      --panel:rgba(255,255,255,.78);
       --panel-solid:#ffffff;
-      --panel-2:rgba(245,249,255,.95);
+      --panel-2:#f8fbff;
       --text:#0f172a;
-      --muted:#4a5b74;
-      --soft:#6f7f98;
+      --muted:#52627f;
+      --soft:#6f80a0;
       --line:rgba(15,23,42,.08);
       --line-strong:rgba(15,23,42,.12);
-      --accent:#246bff;
-      --accent-2:#7c3aed;
+      --accent:#175cff;
+      --accent-2:#7c4dff;
       --accent-3:#0ea5a5;
-      --accent-4:#f59e0b;
+      --accent-4:#ffb84d;
       --shadow:0 18px 60px rgba(15,23,42,.08);
-      --shadow-strong:0 28px 80px rgba(36,107,255,.12);
-      --radius-xl:30px;
-      --radius-lg:24px;
-      --radius-md:18px;
-      --radius-sm:14px;
+      --shadow-strong:0 28px 90px rgba(23,92,255,.14);
+      --ring:0 0 0 8px rgba(23,92,255,.08);
+      --radius-xl:34px;
+      --radius-lg:26px;
+      --radius-md:20px;
+      --radius-sm:16px;
       --max:1240px;
-      --ring:0 0 0 8px rgba(36,107,255,.08);
-      --hero-gradient:
-        radial-gradient(circle at 12% 10%, rgba(36,107,255,.18), transparent 24%),
-        radial-gradient(circle at 90% 8%, rgba(124,58,237,.15), transparent 20%),
-        radial-gradient(circle at 72% 72%, rgba(14,165,165,.10), transparent 22%),
-        linear-gradient(180deg,#fbfdff 0%,#f4f8fd 34%,#edf3fb 100%);
+      --hero-bg:
+        radial-gradient(circle at 8% 12%, rgba(23,92,255,.12), transparent 18%),
+        radial-gradient(circle at 86% 10%, rgba(124,77,255,.12), transparent 20%),
+        radial-gradient(circle at 70% 72%, rgba(14,165,165,.08), transparent 18%),
+        linear-gradient(180deg,#fcfdff 0%,#f5f8fe 42%,#edf3fb 100%);
     }
+
     body.theme-night{
-      --bg:#0b1320;
-      --bg-soft:#121c2b;
-      --panel:rgba(10,18,31,.72);
-      --panel-solid:#0f1a2a;
-      --panel-2:rgba(16,26,42,.92);
+      --bg:#0a1220;
+      --bg-soft:#101a2a;
+      --panel:rgba(11,18,31,.72);
+      --panel-solid:#0f1a2b;
+      --panel-2:#101b2a;
       --text:#edf4ff;
-      --muted:#c2d2e7;
-      --soft:#97abc4;
+      --muted:#bac9de;
+      --soft:#8da3c0;
       --line:rgba(255,255,255,.08);
       --line-strong:rgba(255,255,255,.12);
-      --accent:#61a4ff;
-      --accent-2:#b28cff;
-      --accent-3:#3fd0ca;
-      --accent-4:#ffc259;
-      --shadow:0 18px 60px rgba(0,0,0,.28);
-      --shadow-strong:0 28px 90px rgba(0,0,0,.38);
-      --ring:0 0 0 8px rgba(97,164,255,.08);
-      --hero-gradient:
-        radial-gradient(circle at 12% 10%, rgba(97,164,255,.15), transparent 24%),
-        radial-gradient(circle at 90% 8%, rgba(178,140,255,.16), transparent 20%),
-        radial-gradient(circle at 72% 72%, rgba(63,208,202,.10), transparent 22%),
-        linear-gradient(180deg,#0a1220 0%,#0d1625 34%,#101b2a 100%);
+      --accent:#6ea7ff;
+      --accent-2:#b695ff;
+      --accent-3:#42d2cb;
+      --accent-4:#ffca6c;
+      --shadow:0 20px 70px rgba(0,0,0,.34);
+      --shadow-strong:0 34px 110px rgba(0,0,0,.45);
+      --ring:0 0 0 8px rgba(110,167,255,.08);
+      --hero-bg:
+        radial-gradient(circle at 8% 12%, rgba(110,167,255,.12), transparent 18%),
+        radial-gradient(circle at 86% 10%, rgba(182,149,255,.15), transparent 20%),
+        radial-gradient(circle at 70% 72%, rgba(66,210,203,.09), transparent 18%),
+        linear-gradient(180deg,#09111d 0%,#0c1524 42%,#101a2a 100%);
     }
+
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
     body{
       margin:0;
-      font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      background:var(--hero-gradient);
+      font-family:Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:var(--hero-bg);
       color:var(--text);
       overflow-x:hidden;
     }
-    ::selection{background:rgba(36,107,255,.18)}
-    a{color:inherit;text-decoration:none}
-    img{max-width:100%;display:block}
-    .page-bg{
-      position:fixed; inset:0; z-index:-3; pointer-events:none;
+    ::selection{background:rgba(23,92,255,.16)}
+    a{text-decoration:none;color:inherit}
+    img{display:block;max-width:100%}
+
+    .back-grid,
+    .back-glow,
+    .noise,
+    .cursor-glow,
+    .progress{pointer-events:none}
+
+    .back-grid{
+      position:fixed;inset:0;z-index:-4;opacity:.65;
       background-image:
-        linear-gradient(rgba(36,107,255,.045) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(36,107,255,.045) 1px, transparent 1px);
-      background-size:28px 28px;
-      mask-image:linear-gradient(180deg, rgba(0,0,0,.9), rgba(0,0,0,.35) 75%, transparent 100%);
+        linear-gradient(rgba(23,92,255,.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(23,92,255,.04) 1px, transparent 1px);
+      background-size:34px 34px;
+      mask-image:linear-gradient(180deg, rgba(0,0,0,.95), rgba(0,0,0,.35) 78%, transparent 100%);
     }
-    body.theme-night .page-bg{
+    body.theme-night .back-grid{
       background-image:
-        linear-gradient(rgba(97,164,255,.05) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(97,164,255,.05) 1px, transparent 1px);
+        linear-gradient(rgba(110,167,255,.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(110,167,255,.05) 1px, transparent 1px);
     }
-    #meshCanvas{
-      position:fixed; inset:0; z-index:-2; pointer-events:none; opacity:.8;
+    .back-glow{
+      position:fixed;inset:0;z-index:-3;overflow:hidden;
     }
-    .orbs::before,.orbs::after{
-      content:""; position:fixed; border-radius:50%; filter:blur(48px); pointer-events:none; z-index:-1;
-      animation:float 16s ease-in-out infinite alternate;
+    .back-glow::before,
+    .back-glow::after{
+      content:"";position:absolute;border-radius:50%;filter:blur(54px);opacity:.7;
+      animation:floatBlob 18s ease-in-out infinite alternate;
     }
-    .orbs::before{
-      width:320px; height:320px; left:-60px; top:120px;
-      background:rgba(36,107,255,.14);
+    .back-glow::before{
+      width:360px;height:360px;left:-90px;top:110px;background:rgba(23,92,255,.14);
     }
-    .orbs::after{
-      width:280px; height:280px; right:-60px; top:40px;
-      background:rgba(124,58,237,.14);
-      animation-duration:19s;
+    .back-glow::after{
+      width:320px;height:320px;right:-90px;top:40px;background:rgba(124,77,255,.14);animation-duration:21s;
     }
-    @keyframes float{
-      from{transform:translate3d(0,0,0) scale(1)}
-      to{transform:translate3d(40px,-20px,0) scale(1.08)}
+    .noise{
+      position:fixed;inset:0;z-index:-2;opacity:.035;
+      background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160' viewBox='0 0 160 160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
     }
+    .cursor-glow{
+      position:fixed;left:0;top:0;width:320px;height:320px;border-radius:50%;z-index:-1;
+      background:radial-gradient(circle, rgba(23,92,255,.08) 0%, rgba(23,92,255,.03) 32%, transparent 70%);
+      transform:translate(-50%,-50%);
+      transition:transform .12s linear;
+    }
+    body.theme-night .cursor-glow{background:radial-gradient(circle, rgba(110,167,255,.09) 0%, rgba(110,167,255,.03) 32%, transparent 70%)}
+
     .progress{
-      position:fixed; top:0; left:0; height:4px; width:100%;
-      transform:scaleX(0); transform-origin:left center;
+      position:fixed;left:0;top:0;width:100%;height:4px;z-index:1200;transform:scaleX(0);transform-origin:left center;
       background:linear-gradient(90deg,var(--accent),var(--accent-2),var(--accent-3));
-      z-index:1200;
-    }
-    .container{width:min(calc(100% - 36px),var(--max)); margin-inline:auto}
-    .section{padding:48px 0}
-    .eyebrow{
-      display:inline-flex; align-items:center; gap:10px; padding:10px 14px;
-      border-radius:999px; background:rgba(255,255,255,.75); border:1px solid var(--line);
-      color:var(--muted); font-size:.92rem; letter-spacing:.02em; backdrop-filter:blur(12px);
-      box-shadow:0 10px 30px rgba(15,23,42,.05);
-    }
-    body.theme-night .eyebrow{background:rgba(13,22,37,.72)}
-    .eyebrow .dot{width:8px; height:8px; border-radius:50%; background:linear-gradient(135deg,var(--accent),var(--accent-2))}
-    .section-title{
-      font-size:clamp(2rem,3vw,3rem); line-height:1.03; letter-spacing:-.045em;
-      margin:0 0 14px;
-    }
-    .section-copy{
-      margin:0; color:var(--muted); font-size:1.05rem; line-height:1.8; max-width:760px;
     }
 
-    .nav-wrap{
-      position:sticky; top:12px; z-index:1100; padding-top:18px;
-    }
+    .container{width:min(calc(100% - 36px), var(--max));margin-inline:auto}
+    section{padding:72px 0}
+
+    .topbar{position:sticky;top:12px;z-index:1100;padding-top:14px}
     .nav{
-      display:flex; align-items:center; justify-content:space-between; gap:18px;
-      padding:14px 18px; border:1px solid var(--line); border-radius:24px; background:var(--panel);
-      backdrop-filter:blur(18px); box-shadow:var(--shadow);
+      display:flex;align-items:center;justify-content:space-between;gap:18px;
+      padding:14px 18px;border-radius:24px;background:var(--panel);border:1px solid var(--line);
+      backdrop-filter:blur(18px);box-shadow:var(--shadow);
     }
-    .brand{
-      display:flex; align-items:center; gap:14px; min-width:0;
+    .brand{display:flex;align-items:center;gap:14px;min-width:0}
+    .logo{
+      width:46px;height:46px;border-radius:18px;display:grid;place-items:center;font-weight:800;letter-spacing:-.05em;
+      background:linear-gradient(135deg, rgba(23,92,255,.15), rgba(124,77,255,.15));
+      border:1px solid var(--line);box-shadow:var(--ring);
     }
-    .brand-badge{
-      width:44px; height:44px; border-radius:16px;
-      display:grid; place-items:center;
-      background:linear-gradient(135deg, rgba(36,107,255,.16), rgba(124,58,237,.16));
-      color:var(--text); font-weight:800; letter-spacing:-.04em; border:1px solid var(--line);
-      box-shadow:var(--ring);
+    .brand-copy strong{display:block;font-size:.98rem}
+    .brand-copy span{display:block;color:var(--muted);font-size:.85rem}
+    .links{display:flex;align-items:center;gap:6px;flex-wrap:wrap;justify-content:flex-end}
+    .links a,.icon-btn{
+      padding:11px 14px;border-radius:14px;color:var(--muted);font-size:.94rem;transition:.25s ease;
     }
-    .brand-text strong{display:block; font-size:.98rem}
-    .brand-text span{display:block; color:var(--muted); font-size:.84rem}
-    .nav-links{
-      display:flex; align-items:center; gap:6px; flex-wrap:wrap; justify-content:flex-end;
-    }
-    .nav-links a, .nav-btn{
-      padding:11px 14px; border-radius:14px; color:var(--muted); font-size:.94rem; transition:.25s ease;
-    }
-    .nav-links a:hover, .nav-links a.active{color:var(--text); background:rgba(36,107,255,.08)}
-    .nav-actions{display:flex; align-items:center; gap:10px}
+    .links a:hover,.links a.active{color:var(--text);background:rgba(23,92,255,.08)}
+    .nav-right{display:flex;align-items:center;gap:10px}
     .icon-btn{
-      width:44px; height:44px; border:none; cursor:pointer; border-radius:14px;
-      display:grid; place-items:center; background:var(--panel-solid); color:var(--text);
-      border:1px solid var(--line); box-shadow:0 10px 24px rgba(15,23,42,.06);
-      transition:.25s ease;
+      width:44px;height:44px;padding:0;border:1px solid var(--line);background:var(--panel-solid);cursor:pointer;
+      display:grid;place-items:center;box-shadow:0 12px 28px rgba(15,23,42,.05)
     }
-    .icon-btn:hover{transform:translateY(-2px); box-shadow:var(--shadow)}
-    .cta{
-      display:inline-flex; align-items:center; justify-content:center; gap:10px;
-      padding:14px 18px; border-radius:16px; border:1px solid transparent;
-      background:linear-gradient(135deg,var(--accent),var(--accent-2)); color:white; font-weight:700;
-      box-shadow:0 16px 40px rgba(36,107,255,.28); transition:.28s ease;
-    }
-    .cta:hover{transform:translateY(-2px) scale(1.01)}
-    .ghost{
-      display:inline-flex; align-items:center; justify-content:center; gap:10px;
-      padding:14px 18px; border-radius:16px; border:1px solid var(--line-strong);
-      background:rgba(255,255,255,.58); color:var(--text); font-weight:650; backdrop-filter:blur(14px);
-      box-shadow:0 12px 28px rgba(15,23,42,.05); transition:.28s ease;
-    }
-    body.theme-night .ghost{background:rgba(15,26,42,.75)}
-    .ghost:hover{transform:translateY(-2px)}
-
-    .hero{
-      padding:40px 0 26px;
-      min-height:calc(100vh - 40px);
-      display:flex; align-items:center;
-    }
-    .hero-grid{
-      display:grid; grid-template-columns:1.08fr .92fr; gap:34px; align-items:center;
-    }
-    .hero-copy h1{
-      margin:18px 0 16px; font-size:clamp(3rem,6vw,6.2rem); line-height:.94; letter-spacing:-.065em;
-      max-width:840px;
-    }
-    .hero-copy h1 .grad{
-      background:linear-gradient(135deg,var(--accent),var(--accent-2),var(--accent-3));
-      -webkit-background-clip:text; background-clip:text; color:transparent;
-    }
-    .hero-copy p{
-      font-size:1.12rem; line-height:1.88; color:var(--muted); max-width:720px; margin:0 0 28px;
-    }
-    .hero-actions{
-      display:flex; flex-wrap:wrap; gap:14px; margin-bottom:28px;
-    }
-    .inline-meta{
-      display:grid; grid-template-columns:repeat(4, minmax(0,1fr)); gap:12px;
-      max-width:860px;
-    }
-    .inline-card{
-      padding:16px 16px 15px; border-radius:18px; background:var(--panel);
-      border:1px solid var(--line); backdrop-filter:blur(12px); box-shadow:var(--shadow);
-    }
-    .inline-card strong{display:block; font-size:1.05rem; margin-bottom:5px}
-    .inline-card span{display:block; color:var(--muted); line-height:1.5; font-size:.92rem}
-
-    .hero-visual{
-      position:relative; min-height:620px;
-    }
-    .visual-shell{
-      position:relative; height:620px; border-radius:36px; overflow:hidden;
-      background:
-        radial-gradient(circle at 30% 20%, rgba(36,107,255,.18), transparent 28%),
-        radial-gradient(circle at 70% 25%, rgba(124,58,237,.16), transparent 24%),
-        radial-gradient(circle at 70% 82%, rgba(14,165,165,.14), transparent 28%),
-        linear-gradient(180deg, rgba(255,255,255,.8), rgba(245,249,255,.82));
-      border:1px solid var(--line); box-shadow:var(--shadow-strong);
-      backdrop-filter:blur(10px);
-    }
-    body.theme-night .visual-shell{
-      background:
-        radial-gradient(circle at 30% 20%, rgba(97,164,255,.18), transparent 28%),
-        radial-gradient(circle at 70% 25%, rgba(178,140,255,.16), transparent 24%),
-        radial-gradient(circle at 70% 82%, rgba(63,208,202,.14), transparent 28%),
-        linear-gradient(180deg, rgba(18,28,43,.86), rgba(13,22,37,.88));
-    }
-    .constellation{
-      position:absolute; inset:0;
-      background-image:
-        linear-gradient(rgba(36,107,255,.06) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(36,107,255,.06) 1px, transparent 1px);
-      background-size:38px 38px;
-      opacity:.7;
-      mask-image:linear-gradient(180deg, rgba(0,0,0,.95), transparent 95%);
-    }
-    .radar{
-      position:absolute; inset:50% auto auto 50%; transform:translate(-50%,-50%);
-      width:min(74%,430px); aspect-ratio:1;
-      border-radius:50%; display:grid; place-items:center;
-    }
-    .ring{position:absolute; border-radius:50%; border:1px solid rgba(36,107,255,.16)}
-    body.theme-night .ring{border-color:rgba(97,164,255,.18)}
-    .ring.one{inset:0}
-    .ring.two{inset:12%}
-    .ring.three{inset:24%}
-    .ring::after{
-      content:""; position:absolute; inset:-1px; border-radius:50%;
-      border-top:1px solid rgba(36,107,255,.34); animation:spin 9s linear infinite;
-    }
-    body.theme-night .ring::after{border-top-color:rgba(97,164,255,.4)}
-    .ring.two::after{animation-duration:14s; animation-direction:reverse}
-    .ring.three::after{animation-duration:18s}
-    @keyframes spin{to{transform:rotate(360deg)}}
-    .core{
-      position:relative; width:130px; height:130px; border-radius:32px;
-      display:grid; place-items:center; text-align:center;
-      background:linear-gradient(135deg, rgba(36,107,255,.18), rgba(124,58,237,.20));
-      border:1px solid var(--line); box-shadow:0 20px 50px rgba(36,107,255,.18);
-      backdrop-filter:blur(18px);
-    }
-    .core strong{display:block; font-size:1.25rem; letter-spacing:-.04em}
-    .core span{display:block; font-size:.84rem; color:var(--muted); margin-top:6px}
-    .node{
-      position:absolute; padding:10px 12px; border-radius:14px;
-      background:var(--panel); border:1px solid var(--line); box-shadow:var(--shadow);
-      font-size:.86rem; color:var(--text); font-weight:650; letter-spacing:-.01em;
-    }
-    .n1{left:8%; top:16%}.n2{right:7%; top:12%}.n3{right:6%; bottom:18%}
-    .n4{left:10%; bottom:20%}.n5{left:50%; top:4%; transform:translateX(-50%)}
-    .n6{left:50%; bottom:6%; transform:translateX(-50%)}
-    .visual-panel{
-      position:absolute; backdrop-filter:blur(16px); background:var(--panel); border:1px solid var(--line);
-      border-radius:20px; box-shadow:var(--shadow);
-    }
-    .vp-top{
-      left:24px; right:24px; top:24px; padding:16px 18px;
-      display:flex; justify-content:space-between; gap:16px; align-items:center; flex-wrap:wrap;
-    }
-    .vp-top strong{font-size:.98rem}
-    .vp-top span{font-size:.9rem; color:var(--muted)}
-    .mini-tags{display:flex; flex-wrap:wrap; gap:8px}
-    .mini-tags span{
-      padding:8px 10px; border-radius:999px; background:rgba(36,107,255,.08);
-      color:var(--text); font-size:.82rem; border:1px solid var(--line);
-    }
-    .vp-bottom{
-      left:22px; right:22px; bottom:22px; padding:18px;
-      display:grid; grid-template-columns:1fr 1fr; gap:14px;
-    }
-    .signal-card{
-      padding:14px 16px; border-radius:16px; background:rgba(255,255,255,.58); border:1px solid var(--line);
-    }
-    body.theme-night .signal-card{background:rgba(13,22,37,.78)}
-    .signal-card strong{display:block; margin-bottom:6px}
-    .signal-card p{margin:0; color:var(--muted); font-size:.92rem; line-height:1.65}
-
-    .stats{
-      padding-top:14px;
-    }
-    .stats-grid{
-      display:grid; grid-template-columns:repeat(4, minmax(0,1fr)); gap:16px;
-    }
-    .stat{
-      position:relative; padding:22px; border-radius:24px; background:var(--panel);
-      border:1px solid var(--line); box-shadow:var(--shadow); overflow:hidden;
-    }
-    .stat::before{
-      content:""; position:absolute; inset:auto -30% -52% auto; width:180px; height:180px; border-radius:50%;
-      background:radial-gradient(circle, rgba(36,107,255,.12), transparent 65%);
-    }
-    .stat strong{
-      display:block; font-size:2rem; line-height:1; letter-spacing:-.05em; margin-bottom:12px;
-    }
-    .stat span{
-      display:block; color:var(--muted); line-height:1.6; font-size:.97rem;
-    }
-
-    .spot-grid{
-      display:grid; grid-template-columns:repeat(12,1fr); gap:18px;
-      margin-top:26px;
-    }
-    .spot-card{
-      grid-column:span 4; padding:26px; border-radius:26px; background:var(--panel);
-      border:1px solid var(--line); box-shadow:var(--shadow); position:relative; overflow:hidden;
-      transition:transform .28s ease, box-shadow .28s ease, border-color .28s ease;
-    }
-    .spot-card:hover{
-      transform:translateY(-6px);
-      box-shadow:0 24px 64px rgba(36,107,255,.12);
-      border-color:rgba(36,107,255,.2);
-    }
-    .spot-card::before{
-      content:""; position:absolute; inset:0; background:linear-gradient(140deg, rgba(36,107,255,.08), transparent 45%, rgba(124,58,237,.06));
-      opacity:0; transition:.28s ease;
-    }
-    .spot-card:hover::before{opacity:1}
-    .spot-icon{
-      width:58px; height:58px; border-radius:18px; display:grid; place-items:center;
-      font-size:1.55rem; background:linear-gradient(135deg, rgba(36,107,255,.14), rgba(124,58,237,.14));
-      border:1px solid var(--line); margin-bottom:18px;
-    }
-    .spot-card h3{margin:0 0 12px; font-size:1.28rem; letter-spacing:-.04em}
-    .spot-card p{margin:0; color:var(--muted); line-height:1.8}
-    .spot-card .tagline{
-      margin-top:18px; display:inline-flex; padding:8px 12px; border-radius:999px;
-      background:rgba(36,107,255,.08); border:1px solid var(--line); color:var(--text); font-size:.84rem; font-weight:650;
-    }
-
-    .featured-wrap{
-      display:grid; grid-template-columns:1fr 1fr; gap:18px; margin-top:26px;
-    }
-    .feature-panel{
-      padding:26px; border-radius:28px; background:var(--panel); border:1px solid var(--line); box-shadow:var(--shadow);
-      min-height:280px;
-    }
-    .feature-panel h3{margin:0 0 12px; font-size:1.35rem; letter-spacing:-.04em}
-    .feature-panel p{margin:0 0 16px; color:var(--muted); line-height:1.8}
-    .pill-row{display:flex; flex-wrap:wrap; gap:10px}
+    .icon-btn:hover{transform:translateY(-2px)}
     .pill{
-      padding:10px 12px; border-radius:999px; border:1px solid var(--line);
-      background:rgba(255,255,255,.65); font-size:.86rem; color:var(--text);
+      display:inline-flex;align-items:center;gap:10px;padding:10px 14px;border-radius:999px;
+      background:rgba(255,255,255,.72);border:1px solid var(--line);backdrop-filter:blur(12px);
+      color:var(--muted);font-size:.9rem;box-shadow:0 10px 30px rgba(15,23,42,.05)
     }
-    body.theme-night .pill{background:rgba(12,21,35,.78)}
+    body.theme-night .pill{background:rgba(12,20,34,.7)}
+    .dot{width:8px;height:8px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--accent-2))}
 
-    .pub-shell{
-      margin-top:26px; padding:22px; border-radius:30px; background:var(--panel);
-      border:1px solid var(--line); box-shadow:var(--shadow);
-    }
-    .pub-toolbar{
-      display:flex; gap:14px; align-items:center; justify-content:space-between; flex-wrap:wrap;
-      margin-bottom:18px;
-    }
-    .searchbox{
-      flex:1 1 280px; display:flex; align-items:center; gap:10px; padding:14px 16px;
-      background:rgba(255,255,255,.68); border:1px solid var(--line); border-radius:18px;
-    }
-    body.theme-night .searchbox{background:rgba(13,22,37,.74)}
-    .searchbox input{
-      width:100%; border:none; background:transparent; outline:none; color:var(--text); font:inherit;
-    }
-    .filters{
-      display:flex; flex-wrap:wrap; gap:10px;
-    }
-    .filter{
-      padding:11px 14px; border-radius:14px; border:1px solid var(--line); background:transparent;
-      color:var(--muted); cursor:pointer; font:inherit; transition:.22s ease;
-    }
-    .filter.active,.filter:hover{
-      background:linear-gradient(135deg, rgba(36,107,255,.12), rgba(124,58,237,.1));
-      color:var(--text); border-color:rgba(36,107,255,.18);
-    }
-    .pub-grid{
-      display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:16px;
-    }
-    .pub-card{
-      padding:20px; border-radius:22px; border:1px solid var(--line);
-      background:linear-gradient(180deg, rgba(255,255,255,.76), rgba(248,251,255,.85));
-      box-shadow:0 12px 28px rgba(15,23,42,.05);
+    .cta,
+    .ghost{
+      display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:14px 18px;border-radius:16px;font-weight:700;
       transition:.28s ease;
     }
-    body.theme-night .pub-card{
-      background:linear-gradient(180deg, rgba(14,23,37,.82), rgba(13,22,37,.94));
+    .cta{background:linear-gradient(135deg,var(--accent),var(--accent-2));color:white;box-shadow:0 18px 40px rgba(23,92,255,.24)}
+    .ghost{background:rgba(255,255,255,.6);border:1px solid var(--line-strong);backdrop-filter:blur(14px)}
+    body.theme-night .ghost{background:rgba(13,20,34,.72)}
+    .cta:hover,.ghost:hover{transform:translateY(-2px)}
+
+    .hero{
+      min-height:calc(100vh - 36px);display:flex;align-items:center;padding:40px 0 18px;
     }
-    .pub-card:hover{transform:translateY(-4px); box-shadow:0 18px 40px rgba(36,107,255,.08)}
-    .pub-meta{
-      display:flex; align-items:center; justify-content:space-between; gap:10px; margin-bottom:10px; flex-wrap:wrap;
+    .hero-grid{display:grid;grid-template-columns:1.02fr .98fr;gap:34px;align-items:center}
+    .hero-copy{position:relative;z-index:2}
+    .hero-copy h1{
+      margin:18px 0 18px;font-size:clamp(3.25rem,7vw,6.55rem);line-height:.93;letter-spacing:-.07em;max-width:760px;
     }
-    .year-badge{
-      display:inline-flex; align-items:center; gap:8px; padding:8px 10px; border-radius:999px;
-      font-size:.8rem; font-weight:750; background:rgba(36,107,255,.08); border:1px solid var(--line);
+    .grad{
+      background:linear-gradient(135deg,var(--accent),var(--accent-2),var(--accent-3));
+      -webkit-background-clip:text;background-clip:text;color:transparent;
     }
-    .pub-cites{
-      font-size:.85rem; color:var(--muted);
+    .hero-copy p{
+      margin:0 0 28px;max-width:660px;font-size:1.1rem;line-height:1.88;color:var(--muted)
     }
-    .pub-card h4{
-      margin:0 0 10px; font-size:1.14rem; line-height:1.45; letter-spacing:-.03em;
+    .hero-actions{display:flex;flex-wrap:wrap;gap:14px;margin-bottom:26px}
+    .hero-signals{display:flex;gap:12px;flex-wrap:wrap;max-width:700px}
+    .signal{
+      display:flex;align-items:center;gap:10px;padding:12px 14px;border-radius:16px;background:var(--panel);
+      border:1px solid var(--line);backdrop-filter:blur(14px);box-shadow:var(--shadow)
     }
-    .venue{
-      display:block; margin-bottom:12px; color:var(--muted); line-height:1.65; font-size:.95rem;
-    }
-    .chips{
-      display:flex; flex-wrap:wrap; gap:8px; margin-top:10px;
-    }
-    .chip{
-      padding:8px 10px; border-radius:999px; background:rgba(36,107,255,.07);
-      border:1px solid var(--line); font-size:.79rem;
-    }
-    .empty{
-      padding:24px; color:var(--muted); border:1px dashed var(--line-strong); border-radius:18px; text-align:center;
+    .signal strong{display:block;font-size:.9rem}
+    .signal span{display:block;color:var(--muted);font-size:.82rem}
+    .mini-icon{
+      width:34px;height:34px;border-radius:12px;display:grid;place-items:center;font-weight:800;
+      background:linear-gradient(135deg, rgba(23,92,255,.16), rgba(124,77,255,.16));border:1px solid var(--line)
     }
 
-    .timeline{
-      position:relative; margin-top:28px;
+    .hero-visual{position:relative;height:min(74vh,720px);min-height:560px}
+    .cyber-stage{
+      position:relative;height:100%;border-radius:40px;border:1px solid var(--line);
+      background:
+        radial-gradient(circle at 50% 50%, rgba(23,92,255,.08), transparent 34%),
+        radial-gradient(circle at 50% 50%, rgba(124,77,255,.06), transparent 58%),
+        linear-gradient(180deg, rgba(255,255,255,.82), rgba(247,250,255,.62));
+      box-shadow:var(--shadow-strong);overflow:hidden;backdrop-filter:blur(20px);
     }
-    .timeline::before{
-      content:""; position:absolute; left:16px; top:0; bottom:0; width:2px;
-      background:linear-gradient(180deg, rgba(36,107,255,.08), rgba(36,107,255,.2), rgba(124,58,237,.18), rgba(14,165,165,.08));
+    body.theme-night .cyber-stage{
+      background:
+        radial-gradient(circle at 50% 50%, rgba(110,167,255,.09), transparent 34%),
+        radial-gradient(circle at 50% 50%, rgba(182,149,255,.08), transparent 58%),
+        linear-gradient(180deg, rgba(10,17,30,.88), rgba(11,19,31,.72));
     }
-    .t-item{
-      position:relative; padding:0 0 18px 56px;
+    .cyber-stage::before,
+    .cyber-stage::after{
+      content:"";position:absolute;inset:auto;pointer-events:none
     }
-    .t-item:last-child{padding-bottom:0}
-    .t-dot{
-      position:absolute; left:6px; top:6px; width:22px; height:22px; border-radius:50%;
-      background:linear-gradient(135deg,var(--accent),var(--accent-2)); box-shadow:0 0 0 8px rgba(36,107,255,.08);
+    .cyber-stage::before{
+      width:520px;height:520px;left:50%;top:50%;transform:translate(-50%,-50%);border-radius:50%;
+      background:radial-gradient(circle, rgba(23,92,255,.12), rgba(23,92,255,.02) 45%, transparent 72%);
+      animation:pulse 6s ease-in-out infinite;
     }
-    .t-card{
-      padding:22px 22px 20px; border-radius:22px; background:var(--panel); border:1px solid var(--line); box-shadow:var(--shadow);
+    .scan-line{
+      position:absolute;inset:0;background:linear-gradient(180deg, transparent 0%, rgba(23,92,255,.08) 48%, transparent 100%);
+      transform:translateY(-100%);animation:scan 7s linear infinite;mix-blend-mode:screen;opacity:.8
     }
-    .t-card .head{
-      display:flex; justify-content:space-between; gap:10px; align-items:flex-start; flex-wrap:wrap;
-      margin-bottom:10px;
+    .radar,
+    .radar::before,
+    .radar::after{
+      position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);border-radius:50%;border:1px solid rgba(23,92,255,.16)
     }
-    .t-card h3{margin:0; font-size:1.12rem; letter-spacing:-.03em}
-    .t-card .when{color:var(--muted); font-weight:650}
-    .t-card p{margin:0; color:var(--muted); line-height:1.8}
+    body.theme-night .radar,
+    body.theme-night .radar::before,
+    body.theme-night .radar::after{border-color:rgba(110,167,255,.16)}
+    .radar{width:420px;height:420px}
+    .radar::before{content:"";width:290px;height:290px}
+    .radar::after{content:"";width:560px;height:560px;opacity:.6}
+    .radar-sweep{
+      position:absolute;left:50%;top:50%;width:310px;height:310px;transform:translate(-50%,-50%);
+      border-radius:50%;background:conic-gradient(from 0deg, rgba(23,92,255,.22), transparent 22%, transparent 100%);
+      filter:blur(2px);animation:spin 8s linear infinite;mix-blend-mode:screen;opacity:.95
+    }
+    body.theme-night .radar-sweep{background:conic-gradient(from 0deg, rgba(110,167,255,.22), transparent 22%, transparent 100%)}
+    .shield-core{
+      position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:200px;height:240px;
+      filter:drop-shadow(0 24px 40px rgba(23,92,255,.18));
+    }
+    .shield-core svg{width:100%;height:100%}
+    .shield-core .shield-grad stop:first-child{stop-color:var(--accent)}
+    .shield-core .shield-grad stop:last-child{stop-color:var(--accent-2)}
+    .shield-mark{font-size:26px;font-weight:800;letter-spacing:-.06em;fill:white}
 
-    .project-grid{
-      display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:18px; margin-top:26px;
+    .node{
+      position:absolute;width:12px;height:12px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--accent-2));
+      box-shadow:0 0 0 10px rgba(23,92,255,.08), 0 0 28px rgba(23,92,255,.24)
     }
-    .project{
-      padding:24px; border-radius:26px; background:var(--panel); border:1px solid var(--line); box-shadow:var(--shadow);
-      position:relative; overflow:hidden;
+    .node.n1{left:22%;top:26%}
+    .node.n2{left:73%;top:24%}
+    .node.n3{left:78%;top:66%}
+    .node.n4{left:18%;top:70%}
+    .node.n5{left:50%;top:16%}
+    .beam{
+      position:absolute;left:50%;top:50%;height:1px;transform-origin:left center;background:linear-gradient(90deg, rgba(23,92,255,.18), rgba(23,92,255,.02));
     }
-    .project::before{
-      content:""; position:absolute; inset:auto auto 0 0; width:160px; height:160px; border-radius:50%;
-      transform:translate(-35%,35%);
-      background:radial-gradient(circle, rgba(36,107,255,.12), transparent 70%);
-    }
-    .project .status{
-      display:inline-flex; align-items:center; gap:8px; padding:8px 11px; border-radius:999px; border:1px solid var(--line);
-      background:rgba(36,107,255,.08); font-size:.8rem; font-weight:700; margin-bottom:14px;
-    }
-    .project h3{margin:0 0 10px; font-size:1.3rem; letter-spacing:-.04em}
-    .project p{margin:0 0 16px; color:var(--muted); line-height:1.78}
-    .project .meta{
-      display:grid; gap:8px; color:var(--muted); font-size:.93rem;
-    }
-    .project .link-row{display:flex; gap:10px; flex-wrap:wrap; margin-top:18px}
+    body.theme-night .beam{background:linear-gradient(90deg, rgba(110,167,255,.24), rgba(110,167,255,.02))}
+    .b1{width:180px;transform:translate(-50%,-50%) rotate(-146deg)}
+    .b2{width:170px;transform:translate(-50%,-50%) rotate(-34deg)}
+    .b3{width:180px;transform:translate(-50%,-50%) rotate(34deg)}
+    .b4{width:196px;transform:translate(-50%,-50%) rotate(146deg)}
+    .b5{width:140px;transform:translate(-50%,-50%) rotate(-90deg)}
 
-    .service-grid{
-      display:grid; grid-template-columns:1.1fr .9fr; gap:18px; margin-top:26px;
+    .float-tag{
+      position:absolute;padding:12px 16px;border-radius:18px;background:var(--panel);border:1px solid var(--line);
+      box-shadow:var(--shadow);backdrop-filter:blur(14px);font-weight:700;font-size:.95rem;letter-spacing:-.02em;
+      animation:floatTag 6.5s ease-in-out infinite;
     }
-    .service-panel{
-      padding:24px; border-radius:28px; background:var(--panel); border:1px solid var(--line); box-shadow:var(--shadow);
-    }
-    .service-panel h3{margin:0 0 14px; font-size:1.34rem; letter-spacing:-.04em}
-    .service-panel p{margin:0 0 18px; color:var(--muted); line-height:1.8}
-    .journal-cloud{
-      display:flex; flex-wrap:wrap; gap:10px;
-    }
-    .journal-cloud span{
-      padding:10px 12px; border-radius:999px; border:1px solid var(--line);
-      background:rgba(255,255,255,.68); font-size:.84rem;
-    }
-    body.theme-night .journal-cloud span{background:rgba(14,22,35,.78)}
-    .lead-list{display:grid; gap:12px}
-    .lead-item{
-      padding:16px 18px; border-radius:18px; border:1px solid var(--line); background:rgba(255,255,255,.6);
-    }
-    body.theme-night .lead-item{background:rgba(13,22,37,.76)}
-    .lead-item strong{display:block; margin-bottom:6px}
-    .lead-item span{color:var(--muted); line-height:1.6; font-size:.95rem}
+    .float-tag small{display:block;margin-top:4px;color:var(--muted);font-weight:500;font-size:.77rem;letter-spacing:0}
+    .tag-1{left:6%;top:10%}
+    .tag-2{right:6%;top:16%;animation-delay:-1s}
+    .tag-3{left:8%;bottom:17%;animation-delay:-2s}
+    .tag-4{right:6%;bottom:12%;animation-delay:-3s}
+    .tag-5{left:50%;top:5%;transform:translateX(-50%);animation-delay:-4s}
+    .tag-6{right:22%;top:46%;animation-delay:-1.5s}
 
-    .footer-card{
-      margin:10px 0 40px; padding:28px; border-radius:30px; background:var(--panel);
-      border:1px solid var(--line); box-shadow:var(--shadow); display:grid; grid-template-columns:1fr auto; gap:18px; align-items:center;
+    .hero-bottom{
+      display:flex;align-items:center;justify-content:space-between;gap:18px;margin-top:26px;padding:18px 20px;border-radius:22px;
+      background:var(--panel);border:1px solid var(--line);backdrop-filter:blur(16px);box-shadow:var(--shadow)
     }
-    .footer-card h3{margin:0 0 10px; font-size:1.65rem; letter-spacing:-.045em}
-    .footer-card p{margin:0; color:var(--muted); line-height:1.8; max-width:760px}
-    .footer-actions{display:flex; gap:12px; flex-wrap:wrap; justify-content:flex-end}
-    .footer-note{
-      margin-top:18px; color:var(--soft); font-size:.9rem;
-    }
+    .ticker{display:flex;gap:24px;flex-wrap:wrap;color:var(--muted);font-size:.95rem}
+    .ticker span{display:inline-flex;align-items:center;gap:10px}
+    .ticker span::before{content:"";width:7px;height:7px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--accent-2))}
+    .status-line{font-weight:700;letter-spacing:-.03em}
 
-    .reveal{opacity:0; transform:translateY(20px); transition:opacity .7s ease, transform .7s ease}
-    .reveal.show{opacity:1; transform:none}
+    .section-head{display:flex;justify-content:space-between;gap:20px;align-items:end;margin-bottom:26px}
+    .section-head h2{margin:16px 0 10px;font-size:clamp(2rem,3vw,3rem);line-height:1.02;letter-spacing:-.05em}
+    .section-head p{margin:0;max-width:760px;color:var(--muted);line-height:1.85;font-size:1.03rem}
 
-    @media (max-width: 1100px){
-      .hero-grid,.featured-wrap,.service-grid{grid-template-columns:1fr}
-      .spot-card{grid-column:span 6}
-      .project-grid,.stats-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
-      .inline-meta{grid-template-columns:repeat(2,minmax(0,1fr))}
-      .hero-visual{min-height:auto}
-      .visual-shell{height:580px}
-      .footer-card{grid-template-columns:1fr}
-      .footer-actions{justify-content:flex-start}
+    .focus-grid{display:grid;grid-template-columns:repeat(4, minmax(0,1fr));gap:18px}
+    .focus-card,
+    .pub-card,
+    .project-card,
+    .lead-card,
+    .quote,
+    .timeline-card{
+      position:relative;padding:24px;border-radius:26px;background:var(--panel);border:1px solid var(--line);
+      box-shadow:var(--shadow);backdrop-filter:blur(16px);overflow:hidden
     }
-    @media (max-width: 820px){
-      .nav{padding:12px 14px}
-      .nav-links{display:none}
+    .focus-card::before,
+    .pub-card::before,
+    .project-card::before,
+    .lead-card::before,
+    .timeline-card::before{
+      content:"";position:absolute;left:0;top:0;width:100%;height:2px;background:linear-gradient(90deg,var(--accent),transparent 72%);opacity:.9
+    }
+    .focus-card .icon,
+    .project-card .icon,
+    .lead-card .icon{
+      width:48px;height:48px;border-radius:16px;display:grid;place-items:center;margin-bottom:18px;font-weight:800;
+      background:linear-gradient(135deg, rgba(23,92,255,.15), rgba(124,77,255,.14));border:1px solid var(--line)
+    }
+    .focus-card h3,
+    .project-card h3,
+    .lead-card h3,
+    .pub-card h3,
+    .timeline-card h3{margin:0 0 10px;font-size:1.2rem;letter-spacing:-.03em}
+    .focus-card p,
+    .project-card p,
+    .lead-card p,
+    .timeline-card p,
+    .pub-card p{margin:0;color:var(--muted);line-height:1.78}
+
+    .quote{
+      margin-top:18px;padding:28px 30px;background:
+        radial-gradient(circle at 85% 25%, rgba(124,77,255,.09), transparent 30%),
+        radial-gradient(circle at 15% 75%, rgba(23,92,255,.08), transparent 32%),
+        var(--panel);
+    }
+    .quote strong{display:block;margin-bottom:10px;font-size:1.2rem;letter-spacing:-.03em}
+    .quote p{margin:0;color:var(--muted);font-size:1.03rem;line-height:1.95;max-width:880px}
+
+    .pub-toolbar{display:flex;justify-content:space-between;gap:18px;align-items:center;flex-wrap:wrap;margin-bottom:18px}
+    .filters{display:flex;gap:10px;flex-wrap:wrap}
+    .filter-btn,
+    .search{
+      border:1px solid var(--line);background:var(--panel-solid);border-radius:16px;font:inherit;color:inherit
+    }
+    .filter-btn{padding:11px 14px;cursor:pointer;transition:.24s ease}
+    .filter-btn.active,
+    .filter-btn:hover{background:rgba(23,92,255,.09);color:var(--text)}
+    .search-wrap{position:relative;min-width:min(100%,340px)}
+    .search{width:100%;padding:13px 16px 13px 42px;outline:none}
+    .search:focus{box-shadow:var(--ring)}
+    .search-wrap svg{position:absolute;left:14px;top:50%;transform:translateY(-50%);opacity:.55}
+
+    .pub-grid{display:grid;grid-template-columns:repeat(2, minmax(0,1fr));gap:18px}
+    .pub-meta{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:12px;color:var(--soft);font-size:.88rem}
+    .badge{
+      display:inline-flex;align-items:center;gap:8px;padding:8px 10px;border-radius:999px;background:rgba(23,92,255,.08);
+      color:var(--accent);font-weight:700;font-size:.8rem
+    }
+    body.theme-night .badge{background:rgba(110,167,255,.12)}
+    .pub-actions{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:16px}
+    .pub-tagline{color:var(--muted);font-size:.9rem}
+    .pub-link{font-weight:700;color:var(--accent)}
+
+    .projects-grid{display:grid;grid-template-columns:repeat(3, minmax(0,1fr));gap:18px}
+    .project-card .meta,
+    .lead-card .meta,
+    .timeline-card .meta{margin-top:14px;display:flex;gap:10px;flex-wrap:wrap}
+
+    .lead-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:18px}
+    .lead-stack{display:grid;gap:18px}
+    .stats-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+    .stat{
+      padding:22px;border-radius:24px;background:var(--panel);border:1px solid var(--line);box-shadow:var(--shadow)
+    }
+    .stat strong{display:block;font-size:2rem;letter-spacing:-.06em;margin-bottom:8px}
+    .stat span{display:block;color:var(--muted);line-height:1.65}
+
+    .timeline{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+
+    .contact-card{
+      display:flex;align-items:center;justify-content:space-between;gap:18px;padding:28px;border-radius:30px;
+      background:
+        radial-gradient(circle at 82% 20%, rgba(124,77,255,.10), transparent 28%),
+        radial-gradient(circle at 12% 72%, rgba(23,92,255,.10), transparent 26%),
+        var(--panel);
+      border:1px solid var(--line);box-shadow:var(--shadow-strong);backdrop-filter:blur(16px)
+    }
+    .contact-card h2{margin:10px 0 10px;font-size:clamp(2rem,3vw,3rem);letter-spacing:-.05em}
+    .contact-card p{margin:0;max-width:760px;color:var(--muted);line-height:1.9}
+    .contact-actions{display:flex;gap:14px;flex-wrap:wrap;justify-content:flex-end}
+
+    footer{padding:26px 0 42px;color:var(--muted);font-size:.92rem}
+    .footer-row{display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap}
+
+    .reveal{opacity:0;transform:translateY(22px);transition:opacity .75s ease, transform .75s ease}
+    .reveal.visible{opacity:1;transform:none}
+
+    .hide{display:none !important}
+
+    @keyframes spin{to{transform:translate(-50%,-50%) rotate(360deg)}}
+    @keyframes floatBlob{from{transform:translate3d(0,0,0) scale(1)}to{transform:translate3d(28px,-16px,0) scale(1.06)}}
+    @keyframes pulse{0%,100%{transform:translate(-50%,-50%) scale(1)}50%{transform:translate(-50%,-50%) scale(1.07)}}
+    @keyframes scan{0%{transform:translateY(-120%)}100%{transform:translateY(120%)}}
+    @keyframes floatTag{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+
+    @media (max-width: 1120px){
+      .hero-grid,
+      .lead-grid,
+      .focus-grid,
+      .projects-grid,
+      .timeline,
+      .pub-grid{grid-template-columns:1fr 1fr}
+      .hero{min-height:auto;padding-top:32px}
+      .hero-visual{min-height:520px;height:560px}
+      .focus-grid .focus-card:last-child{grid-column:span 2}
+    }
+    @media (max-width: 860px){
+      .nav{padding:14px}
+      .links{display:none}
+      .hero-grid,
+      .lead-grid,
+      .focus-grid,
+      .projects-grid,
+      .timeline,
+      .pub-grid,
+      .stats-grid{grid-template-columns:1fr}
+      .hero-copy h1{max-width:100%}
+      .hero-visual{order:-1;height:500px;min-height:500px}
+      .radar{width:340px;height:340px}
+      .radar::before{width:240px;height:240px}
+      .radar::after{width:460px;height:460px}
+      .shield-core{width:170px;height:205px}
+      .tag-6{display:none}
+      .hero-bottom,
+      .contact-card,
+      .footer-row{flex-direction:column;align-items:flex-start}
+      .contact-actions{justify-content:flex-start}
+    }
+    @media (max-width: 640px){
+      .container{width:min(calc(100% - 20px), var(--max))}
+      .topbar{top:8px;padding-top:10px}
+      section{padding:58px 0}
       .hero{padding-top:20px}
-      .pub-grid,.project-grid,.stats-grid{grid-template-columns:1fr}
-      .spot-card{grid-column:span 12}
-      .inline-meta,.vp-bottom{grid-template-columns:1fr}
-      .visual-shell{height:620px}
-      .hero-copy h1{font-size:clamp(2.5rem,14vw,4.4rem)}
-      .section{padding:38px 0}
-      .container{width:min(calc(100% - 24px),var(--max))}
-      .footer-card{padding:22px}
+      .hero-copy h1{font-size:clamp(2.75rem,13vw,4.35rem)}
+      .hero-copy p{font-size:1rem;line-height:1.82}
+      .hero-signals{display:grid;grid-template-columns:1fr}
+      .hero-visual{height:430px;min-height:430px}
+      .radar{width:280px;height:280px}
+      .radar::before{width:190px;height:190px}
+      .radar::after{width:380px;height:380px}
+      .shield-core{width:142px;height:174px}
+      .float-tag{font-size:.82rem;padding:10px 12px}
+      .tag-5{display:none}
+      .status-line{font-size:.95rem}
     }
     @media (prefers-reduced-motion: reduce){
-      html{scroll-behavior:auto}
-      *,*::before,*::after{animation:none!important; transition:none!important}
+      *,*::before,*::after{animation:none !important;transition:none !important;scroll-behavior:auto !important}
+      .cursor-glow{display:none}
     }
   </style>
 </head>
 <body>
-  <div class="page-bg"></div>
-  <canvas id="meshCanvas" aria-hidden="true"></canvas>
-  <div class="orbs" aria-hidden="true"></div>
   <div class="progress" id="progress"></div>
+  <div class="back-grid"></div>
+  <div class="back-glow"></div>
+  <div class="noise"></div>
+  <div class="cursor-glow" id="cursorGlow"></div>
 
-  <div class="container nav-wrap">
-    <nav class="nav">
-      <div class="brand">
-        <div class="brand-badge">AJ</div>
-        <div class="brand-text">
-          <strong>Amir Javadpour</strong>
-          <span>Cybersecurity Researcher · 5G/6G · Cloud/Edge · Intelligent Defense</span>
+  <div class="topbar">
+    <div class="container">
+      <nav class="nav">
+        <a class="brand" href="#top" aria-label="Amir Javadpour home">
+          <div class="logo">AJ</div>
+          <div class="brand-copy">
+            <strong>Amir Javadpour</strong>
+            <span>Senior Cybersecurity Researcher</span>
+          </div>
+        </a>
+
+        <div class="links">
+          <a href="#focus">Focus</a>
+          <a href="#publications">Publications</a>
+          <a href="#projects">Projects</a>
+          <a href="#leadership">Leadership</a>
+          <a href="#journey">Journey</a>
+          <a href="#contact">Contact</a>
         </div>
-      </div>
-      <div class="nav-links">
-        <a href="#about">About</a>
-        <a href="#research">Research</a>
-        <a href="#publications">Publications</a>
-        <a href="#journey">Journey</a>
-        <a href="#projects">Projects</a>
-        <a href="#service">Service</a>
-      </div>
-      <div class="nav-actions">
-        <button class="icon-btn" id="themeToggle" aria-label="Toggle theme">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-            <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 1 0 9.8 9.8Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </button>
-        <a class="cta" href="#publications">Explore selected work</a>
-      </div>
-    </nav>
+
+        <div class="nav-right">
+          <button class="icon-btn" id="themeToggle" aria-label="Toggle theme">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M12 3v2.3M12 18.7V21M4.9 4.9l1.6 1.6M17.5 17.5l1.6 1.6M3 12h2.3M18.7 12H21M4.9 19.1l1.6-1.6M17.5 6.5l1.6-1.6M16 12a4 4 0 1 1-8 0a4 4 0 0 1 8 0Z" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+            </svg>
+          </button>
+          <a class="cta" href="#publications">Explore research</a>
+        </div>
+      </nav>
+    </div>
   </div>
 
-  <header class="hero">
-    <div class="container hero-grid">
-      <div class="hero-copy reveal">
-        <span class="eyebrow"><span class="dot"></span> Senior Cybersecurity Researcher · ORCID verified · European R&I collaborations</span>
-        <h1>
-          Designing <span class="grad">adaptive cyber defense</span><br />
-          for 5G/6G, edge, cloud, and intelligent networks.
-        </h1>
-        <p>
-          Amir Javadpour works at the intersection of moving target defense, DDoS mitigation, cyber deception, intelligent network security, service mesh protection, and trust architectures for cloud–edge–IoT systems. His research combines rigorous security thinking with deployable engineering for modern distributed infrastructures.
-        </p>
-        <div class="hero-actions">
-          <a class="cta" href="https://orcid.org/0000-0002-4932-1660" target="_blank" rel="noreferrer">View ORCID</a>
-          <a class="ghost" href="https://scholar.google.com/citations?hl=en&user=c3HYEEYAAAAJ" target="_blank" rel="noreferrer">Google Scholar</a>
-          <a class="ghost" href="#projects">European projects</a>
-        </div>
-        <div class="inline-meta">
-          <div class="inline-card">
-            <strong>Core focus</strong>
-            <span>Moving target defense, DDoS resilience, secure orchestration, trust, and AI-driven cyber defense.</span>
-          </div>
-          <div class="inline-card">
-            <strong>Research setting</strong>
-            <span>5G/6G, SDN, cloud-native platforms, edge IoT, service mesh, and cyber-physical systems.</span>
-          </div>
-          <div class="inline-card">
-            <strong>Profile signal</strong>
-            <span>Stanford Top 2% Scientist recognition and sustained publication in high-visibility venues.</span>
-          </div>
-          <div class="inline-card">
-            <strong>Academic role</strong>
-            <span>Researcher, collaborator, reviewer, editorial contributor, and mentor across international projects.</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="hero-visual reveal" aria-hidden="true">
-        <div class="visual-shell">
-          <div class="constellation"></div>
-          <div class="visual-panel vp-top">
-            <div>
-              <strong>Security research signature</strong>
-              <span>Adaptive protection from architecture to runtime defense</span>
+  <main id="top">
+    <section class="hero">
+      <div class="container">
+        <div class="hero-grid">
+          <div class="hero-copy reveal visible">
+            <div class="pill"><span class="dot"></span> Security-first research for adaptive and resilient networks</div>
+            <h1>
+              Designing <span class="grad">intelligent cyber defense</span><br />
+              for IoT, edge, and next-generation networks.
+            </h1>
+            <p>
+              Amir Javadpour is a cybersecurity researcher working at the intersection of <strong>IoT security</strong>, <strong>moving target defense</strong>, <strong>cyber deception</strong>, <strong>5G/6G resilience</strong>, and <strong>reinforcement-learning-driven protection</strong>. His work focuses on building adaptive security mechanisms that remain practical for cloud-edge systems, service platforms, and intelligent network infrastructures.
+            </p>
+            <div class="hero-actions">
+              <a class="cta" href="#focus">See security domains</a>
+              <a class="ghost" href="https://orcid.org/0000-0002-4932-1660" target="_blank" rel="noreferrer">ORCID profile</a>
             </div>
-            <div class="mini-tags">
-              <span>MTD</span>
-              <span>DDoS</span>
-              <span>5G/6G</span>
-              <span>Zero-Trust</span>
-            </div>
-          </div>
-
-          <div class="radar">
-            <div class="ring one"></div>
-            <div class="ring two"></div>
-            <div class="ring three"></div>
-            <div class="core">
-              <div>
-                <strong>Adaptive<br/>Cyber Defense</strong>
-                <span>Research engine</span>
+            <div class="hero-signals">
+              <div class="signal">
+                <div class="mini-icon">S</div>
+                <div><strong>World Top 2%</strong><span>Recognized in the Stanford University report</span></div>
+              </div>
+              <div class="signal">
+                <div class="mini-icon">E</div>
+                <div><strong>EU collaboration</strong><span>Research contributions across Horizon projects and consortium work</span></div>
+              </div>
+              <div class="signal">
+                <div class="mini-icon">L</div>
+                <div><strong>Research leadership</strong><span>Publications, reviews, mentoring, and international technical service</span></div>
               </div>
             </div>
-            <div class="node n1">Slice Mutation</div>
-            <div class="node n2">Service Mesh</div>
-            <div class="node n3">Cyber Deception</div>
-            <div class="node n4">RL Security</div>
-            <div class="node n5">Cloud–Edge Trust</div>
-            <div class="node n6">Secure Path Verification</div>
           </div>
 
-          <div class="visual-panel vp-bottom">
-            <div class="signal-card">
-              <strong>Defense by adaptation</strong>
-              <p>Research themes revolve around making the attack surface dynamic, intelligent, and harder to exploit at scale.</p>
-            </div>
-            <div class="signal-card">
-              <strong>Security for real systems</strong>
-              <p>From Kubernetes and service mesh to 5G slices and IoT edges, the work targets practical deployment contexts.</p>
+          <div class="hero-visual reveal">
+            <div class="cyber-stage">
+              <div class="scan-line"></div>
+              <div class="radar"></div>
+              <div class="radar-sweep"></div>
+
+              <div class="beam b1"></div>
+              <div class="beam b2"></div>
+              <div class="beam b3"></div>
+              <div class="beam b4"></div>
+              <div class="beam b5"></div>
+
+              <div class="node n1"></div>
+              <div class="node n2"></div>
+              <div class="node n3"></div>
+              <div class="node n4"></div>
+              <div class="node n5"></div>
+
+              <div class="shield-core" aria-hidden="true">
+                <svg viewBox="0 0 220 260" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <defs>
+                    <linearGradient id="shieldGradient" class="shield-grad" x1="20" y1="24" x2="196" y2="220" gradientUnits="userSpaceOnUse">
+                      <stop offset="0"/>
+                      <stop offset="1"/>
+                    </linearGradient>
+                  </defs>
+                  <path d="M110 16L190 48V113C190 171 155 221 110 244C65 221 30 171 30 113V48L110 16Z" fill="url(#shieldGradient)" opacity=".95"/>
+                  <path d="M110 40L168 63V111C168 157 142 195 110 215C78 195 52 157 52 111V63L110 40Z" fill="white" opacity=".16"/>
+                  <path d="M84 122L103 141L140 100" stroke="white" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+                  <text x="110" y="84" text-anchor="middle" class="shield-mark">AJ</text>
+                </svg>
+              </div>
+
+              <div class="float-tag tag-1">IoT Security<small>adaptive protection</small></div>
+              <div class="float-tag tag-2">Moving Target Defense<small>dynamic mutation & isolation</small></div>
+              <div class="float-tag tag-3">Cyber Deception<small>honeypots, diversion, trust disruption</small></div>
+              <div class="float-tag tag-4">5G / 6G Security<small>slice resilience and service integrity</small></div>
+              <div class="float-tag tag-5">RL-based Defense<small>decision intelligence for mitigation</small></div>
+              <div class="float-tag tag-6">Secure Cloud-Edge<small>encryption, verification, orchestration</small></div>
             </div>
           </div>
         </div>
-      </div>
-    </div>
-  </header>
 
-  <main>
-    <section class="section stats" id="about">
-      <div class="container">
-        <div class="stats-grid reveal">
-          <article class="stat">
-            <strong>2020</strong>
-            <span>Ph.D. in Computer Science (Mathematics/Cybersecurity), with a research trajectory spanning cybersecurity, SDN, cloud computing, IoT, and intelligent defense.</span>
-          </article>
-          <article class="stat">
-            <strong>Top 2%</strong>
-            <span>Recognized among the Stanford University World Top 2% Scientists, reflecting high visibility and sustained research impact.</span>
-          </article>
-          <article class="stat">
-            <strong>EU R&I</strong>
-            <span>Active collaboration across European research and innovation ecosystems, including Horizon 2020 and Horizon Europe consortia.</span>
-          </article>
-          <article class="stat">
-            <strong>Security-first</strong>
-            <span>Research agenda centered on trustworthy, adaptive, and scalable defense mechanisms for modern digital infrastructure.</span>
-          </article>
+        <div class="hero-bottom reveal">
+          <div class="status-line">A research profile centered on security, leadership, and high-impact cyber systems.</div>
+          <div class="ticker" aria-label="Core themes">
+            <span>DDoS mitigation</span>
+            <span>Service mesh protection</span>
+            <span>Edge intelligence</span>
+            <span>Zero-trust thinking</span>
+            <span>Adaptive network security</span>
+          </div>
         </div>
       </div>
     </section>
 
-    <section class="section" id="research">
+    <section id="focus">
       <div class="container">
-        <span class="eyebrow reveal"><span class="dot"></span> Signature research directions</span>
-        <h2 class="section-title reveal">A research portfolio built around adaptive trust, resilient networking, and deployable cyber defense.</h2>
-        <p class="section-copy reveal">
-          The strongest thread across the work is not just attack detection, but the design of systems that stay trustworthy under changing threat conditions. This includes dynamic security control, intelligent orchestration, secure service infrastructures, and defense mechanisms tailored to next-generation network environments.
-        </p>
-
-        <div class="spot-grid">
-          <article class="spot-card reveal">
-            <div class="spot-icon">⛶</div>
-            <h3>Moving Target Defense & DDoS Resilience</h3>
-            <p>From cost-effective MTD in SDN to RL-guided slice mutation and shuffling of critical edge connections, this line of work studies how dynamic reconfiguration can frustrate adversaries and preserve service continuity under attack.</p>
-            <span class="tagline">Adaptive attack surface management</span>
-          </article>
-          <article class="spot-card reveal">
-            <div class="spot-icon">⌘</div>
-            <h3>5G/6G, Network Slicing, and Secure Continuum Systems</h3>
-            <p>Security for programmable and sliced infrastructures is treated as a systems problem, combining policy, orchestration, resource awareness, and learning-based defense mechanisms that can operate in real telecom environments.</p>
-            <span class="tagline">Intelligent telecom security</span>
-          </article>
-          <article class="spot-card reveal">
-            <div class="spot-icon">◌</div>
-            <h3>Cloud–Edge Trust, Encryption as a Service, and Verification</h3>
-            <p>Research on EaaS architectures, secure path verification, and trust across distributed cloud–fog–edge settings addresses confidentiality, integrity, and assurance where latency-sensitive services meet heterogeneous infrastructure.</p>
-            <span class="tagline">Trustworthy distributed security</span>
-          </article>
+        <div class="section-head reveal">
+          <div>
+            <div class="pill"><span class="dot"></span> Core security domains</div>
+            <h2>Focused on defense that adapts under pressure.</h2>
+          </div>
+          <p>
+            The main research direction is not generic cybersecurity. It is about how security mechanisms should behave in real networked systems when the environment is dynamic, adversarial, distributed, latency-sensitive, and infrastructure-aware.
+          </p>
         </div>
 
-        <div class="featured-wrap">
-          <article class="feature-panel reveal">
-            <h3>What distinguishes the portfolio</h3>
+        <div class="focus-grid">
+          <article class="focus-card reveal">
+            <div class="icon">MT</div>
+            <h3>Moving Target Defense</h3>
             <p>
-              The work consistently connects theory, architecture, and deployment. Instead of treating cybersecurity as a single-layer problem, it links runtime adaptation, network programmability, AI-driven control, and trust management into integrated defense strategies.
+              Dynamic mutation, shuffling, slice isolation, and adaptive reconfiguration to reduce attacker certainty and improve resilience against DDoS and persistent disruption.
             </p>
-            <div class="pill-row">
-              <span class="pill">Moving target defense</span>
-              <span class="pill">Reinforcement learning</span>
-              <span class="pill">Service mesh security</span>
-              <span class="pill">Cyber deception</span>
-              <span class="pill">IoT and edge protection</span>
-              <span class="pill">Cloud-native resilience</span>
-            </div>
           </article>
-          <article class="feature-panel reveal">
-            <h3>Application environments</h3>
+          <article class="focus-card reveal">
+            <div class="icon">CD</div>
+            <h3>Cyber Deception</h3>
             <p>
-              The research speaks directly to service providers, cloud-native platforms, edge/IoT deployments, software-defined infrastructures, and highly dynamic telecom environments where security must scale without losing agility.
+              Deception-aware defense strategies using honeypots, diversion, and analytical models that turn uncertainty into an operational advantage for defenders.
             </p>
-            <div class="pill-row">
-              <span class="pill">Kubernetes</span>
-              <span class="pill">Software-defined networking</span>
-              <span class="pill">5G slices</span>
-              <span class="pill">Critical edge systems</span>
-              <span class="pill">Cloud–fog–edge continuum</span>
-              <span class="pill">Industrial and smart systems</span>
-            </div>
+          </article>
+          <article class="focus-card reveal">
+            <div class="icon">IE</div>
+            <h3>IoT and Edge Security</h3>
+            <p>
+              Protection for distributed IoT and edge systems where security must coexist with efficiency, orchestration constraints, and service continuity.
+            </p>
+          </article>
+          <article class="focus-card reveal">
+            <div class="icon">56</div>
+            <h3>5G / 6G and Service Security</h3>
+            <p>
+              Secure slicing, service mesh hardening, encryption-as-a-service, path verification, and trustworthy control of programmable network infrastructures.
+            </p>
+          </article>
+        </div>
+
+        <div class="quote reveal">
+          <strong>Research philosophy</strong>
+          <p>
+            The best security systems are not only accurate or theoretically strong. They are adaptive, deployment-aware, measurable, and usable in the infrastructures where real attacks happen. This profile is built around that idea.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="publications">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <div class="pill"><span class="dot"></span> Featured publications</div>
+            <h2>Selected work across adaptive security, network resilience, and intelligent defense.</h2>
+          </div>
+          <p>
+            A curated selection of papers that reflect the strongest threads in the research portfolio: MTD, cyber deception, reinforcement learning for defense, secure cloud-edge architectures, and protection for software-defined and next-generation networks.
+          </p>
+        </div>
+
+        <div class="pub-toolbar reveal">
+          <div class="filters">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="mtd">MTD</button>
+            <button class="filter-btn" data-filter="rl">RL Defense</button>
+            <button class="filter-btn" data-filter="deception">Deception</button>
+            <button class="filter-btn" data-filter="cloud">Cloud / IoT</button>
+          </div>
+          <label class="search-wrap" aria-label="Search publications">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M21 21l-4.35-4.35M10.8 18a7.2 7.2 0 1 1 0-14.4a7.2 7.2 0 0 1 0 14.4Z" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+            </svg>
+            <input class="search" id="pubSearch" type="search" placeholder="Search title, venue, or keyword" />
+          </label>
+        </div>
+
+        <div class="pub-grid" id="pubGrid">
+          <article class="pub-card reveal" data-category="mtd rl" data-search="moving target defense ddos critical edge connections jisapp 2026">
+            <div class="pub-meta"><span class="badge">2026</span><span>Journal of Information Security and Applications</span></div>
+            <h3>Moving target defense for DDoS mitigation with shuffling of critical edge(s) connections</h3>
+            <p>
+              A focused contribution on dynamic connection shuffling for DDoS resilience, advancing the practical MTD agenda for adaptive and cost-aware mitigation in critical network paths.
+            </p>
+            <div class="pub-actions"><span class="pub-tagline">MTD • DDoS • Edge resilience</span><span class="pub-link">Selected work</span></div>
+          </article>
+
+          <article class="pub-card reveal" data-category="cloud" data-search="eaas pin secure path verification iotj 2026 encryption path verification">
+            <div class="pub-meta"><span class="badge">2026</span><span>IEEE Internet of Things Journal</span></div>
+            <h3>EaaS/PIN Synergy: Advances and Challenges in Secure Path Verification</h3>
+            <p>
+              Explores trust, verification, and secure path assurance for advanced cloud-edge environments, connecting encryption services with stronger integrity mechanisms.
+            </p>
+            <div class="pub-actions"><span class="pub-tagline">Verification • Trust • Cloud-edge</span><span class="pub-link">Selected work</span></div>
+          </article>
+
+          <article class="pub-card reveal" data-category="rl" data-search="beyond reinforcement learning for network security survey tutorial 2026 jisapp">
+            <div class="pub-meta"><span class="badge">2026</span><span>Journal of Information Security and Applications</span></div>
+            <h3>Beyond Reinforcement Learning for Network Security: A Comprehensive Survey and Tutorial</h3>
+            <p>
+              A broad and strategic view of learning-driven security, situating reinforcement learning within a larger landscape of intelligent cyber defense approaches and policies.
+            </p>
+            <div class="pub-actions"><span class="pub-tagline">Survey • RL • Security intelligence</span><span class="pub-link">Selected work</span></div>
+          </article>
+
+          <article class="pub-card reveal" data-category="cloud" data-search="improving security service mesh kubernetes 2025 ieee conference">
+            <div class="pub-meta"><span class="badge">2025</span><span>IEEE Conference Publication</span></div>
+            <h3>Improving the Security of Service Mesh in Kubernetes</h3>
+            <p>
+              Addresses security hardening for cloud-native service infrastructures, with practical relevance for containerized systems and orchestration-heavy deployments.
+            </p>
+            <div class="pub-actions"><span class="pub-tagline">Kubernetes • Service mesh • Cloud-native</span><span class="pub-link">Selected work</span></div>
+          </article>
+
+          <article class="pub-card reveal" data-category="mtd rl" data-search="optimized reinforcement learning based mtd mutation strategy securing edge iot ddos 2025 jisapp">
+            <div class="pub-meta"><span class="badge">2025</span><span>Journal of Information Security and Applications</span></div>
+            <h3>An optimized reinforcement learning based MTD mutation strategy for securing edge IoT against DDoS attack</h3>
+            <p>
+              Combines reinforcement learning with MTD mutation decisions for edge IoT defense, emphasizing adaptation speed, attacker disruption, and infrastructure practicality.
+            </p>
+            <div class="pub-actions"><span class="pub-tagline">Edge IoT • RL • Adaptive mutation</span><span class="pub-link">Selected work</span></div>
+          </article>
+
+          <article class="pub-card reveal" data-category="rl" data-search="detecting malicious nodes game theory reinforcement learning software defined networks international journal information security 2025">
+            <div class="pub-meta"><span class="badge">2025</span><span>International Journal of Information Security</span></div>
+            <h3>Detecting malicious nodes using game theory and reinforcement learning in software-defined networks</h3>
+            <p>
+              Examines how strategic reasoning and learning can improve malicious-node detection in programmable networks where attacker behavior and network state evolve together.
+            </p>
+            <div class="pub-actions"><span class="pub-tagline">SDN • Game theory • Detection</span><span class="pub-link">Selected work</span></div>
+          </article>
+
+          <article class="pub-card reveal" data-category="deception" data-search="comprehensive survey cyber deception techniques improve honeypot performance computers security 2024">
+            <div class="pub-meta"><span class="badge">2024</span><span>Computers &amp; Security</span></div>
+            <h3>A comprehensive survey on cyber deception techniques to improve honeypot performance</h3>
+            <p>
+              A high-visibility survey that maps deception techniques, honeypot strategies, and defender-oriented design principles for stronger cyber defense postures.
+            </p>
+            <div class="pub-actions"><span class="pub-tagline">Deception • Honeypots • Survey</span><span class="pub-link">Selected work</span></div>
+          </article>
+
+          <article class="pub-card reveal" data-category="cloud" data-search="encryption as a service introducing full cloud fog architecture enhanced performance security ieee iotj 2024">
+            <div class="pub-meta"><span class="badge">2024</span><span>IEEE Internet of Things Journal</span></div>
+            <h3>Encryption as a Service (EaaS): Introducing the full-cloud-fog architecture for enhanced performance and security</h3>
+            <p>
+              Proposes an architectural approach for delivering security services across distributed environments where performance and trust must be balanced together.
+            </p>
+            <div class="pub-actions"><span class="pub-tagline">Encryption • Fog-cloud • Service security</span><span class="pub-link">Selected work</span></div>
+          </article>
+
+          <article class="pub-card reveal" data-category="mtd rl" data-search="reinforcement learning based slice isolation ddos beyond 5g networks ieee tnsm 2024">
+            <div class="pub-meta"><span class="badge">2024</span><span>IEEE Transactions on Network and Service Management</span></div>
+            <h3>Reinforcement learning-based slice isolation against DDoS attacks in beyond 5G networks</h3>
+            <p>
+              A strong contribution on intelligent isolation strategies for secure slicing, aligning attack response with service continuity in future network environments.
+            </p>
+            <div class="pub-actions"><span class="pub-tagline">B5G • Slice isolation • RL defense</span><span class="pub-link">Selected work</span></div>
+          </article>
+
+          <article class="pub-card reveal" data-category="mtd" data-search="scema sdn oriented cost effective edge based mtd approach ieee transactions information forensics security 2023">
+            <div class="pub-meta"><span class="badge">2023</span><span>IEEE Transactions on Information Forensics and Security</span></div>
+            <h3>SCEMA: An SDN-oriented cost-effective edge-based MTD approach</h3>
+            <p>
+              Develops a cost-aware edge-based MTD framework for software-defined environments, linking cyber defense effectiveness with deployment realism.
+            </p>
+            <div class="pub-actions"><span class="pub-tagline">SDN • Edge defense • TIFS</span><span class="pub-link">Selected work</span></div>
           </article>
         </div>
       </div>
     </section>
 
-    <section class="section" id="publications">
+    <section id="projects">
       <div class="container">
-        <span class="eyebrow reveal"><span class="dot"></span> Selected publication showcase</span>
-        <h2 class="section-title reveal">A curated set of publications around cybersecurity, trust, and intelligent defense.</h2>
-        <p class="section-copy reveal">
-          This publication explorer highlights selected work in cybersecurity and adjacent trust technologies, with emphasis on moving target defense, DDoS mitigation, 5G/6G security, cloud-edge trust, service mesh protection, and cyber deception.
-        </p>
-
-        <div class="pub-shell reveal">
-          <div class="pub-toolbar">
-            <label class="searchbox">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                <path d="m21 21-4.35-4.35M10.5 18a7.5 7.5 0 1 1 0-15 7.5 7.5 0 0 1 0 15Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
-              </svg>
-              <input type="search" id="pubSearch" placeholder="Search by title, venue, or keyword…" />
-            </label>
-            <div class="filters" id="filters"></div>
+        <div class="section-head reveal">
+          <div>
+            <div class="pill"><span class="dot"></span> International projects</div>
+            <h2>Research connected to European collaboration and real systems.</h2>
           </div>
-          <div class="pub-grid" id="pubGrid"></div>
+          <p>
+            Beyond publications, the portfolio reflects active collaboration in funded projects and consortium-driven environments where architecture, interoperability, and security requirements meet implementation realities.
+          </p>
+        </div>
+
+        <div class="projects-grid">
+          <article class="project-card reveal">
+            <div class="icon">RG</div>
+            <h3>RIGOUROUS</h3>
+            <p>
+              Horizon Europe collaboration focused on advanced trustworthy infrastructures and resilient digital systems, supporting meaningful security-oriented research contributions.
+            </p>
+            <div class="meta"><span class="badge">Horizon Europe</span><a class="pub-link" href="https://rigourous.eu/" target="_blank" rel="noreferrer">Visit project</a></div>
+          </article>
+
+          <article class="project-card reveal">
+            <div class="icon">I5</div>
+            <h3>INSPIRE-5Gplus</h3>
+            <p>
+              European project engagement around 5G innovation, service architectures, and secure network evolution in programmable and next-generation communication systems.
+            </p>
+            <div class="meta"><span class="badge">Horizon 2020</span><a class="pub-link" href="https://www.inspire-5gplus.eu/" target="_blank" rel="noreferrer">Visit project</a></div>
+          </article>
+
+          <article class="project-card reveal">
+            <div class="icon">CH</div>
+            <h3>CHARITY Consortium</h3>
+            <p>
+              Collaboration in a Horizon ecosystem that reflects broader engagement with European research networks, innovation delivery, and interdisciplinary impact.
+            </p>
+            <div class="meta"><span class="badge">Horizon 2020</span><span class="badge">Consortium collaboration</span></div>
+          </article>
         </div>
       </div>
     </section>
 
-    <section class="section" id="journey">
+    <section id="leadership">
       <div class="container">
-        <span class="eyebrow reveal"><span class="dot"></span> Research journey</span>
-        <h2 class="section-title reveal">From infrastructure optimization to adaptive cybersecurity systems.</h2>
-        <p class="section-copy reveal">
-          The trajectory evolves from cloud, SDN, and resource optimization toward intelligent cyber defense, programmable network security, and trust-centric protection for complex distributed environments.
-        </p>
+        <div class="section-head reveal">
+          <div>
+            <div class="pill"><span class="dot"></span> Leadership and academic service</div>
+            <h2>Beyond publishing: review, editorial service, mentoring, and research leadership.</h2>
+          </div>
+          <p>
+            The profile is not only publication-driven. It also reflects peer-review service, editorial involvement, consortium collaboration, and the ability to lead research themes across cybersecurity and intelligent systems.
+          </p>
+        </div>
+
+        <div class="lead-grid">
+          <div class="lead-stack">
+            <article class="lead-card reveal">
+              <div class="icon">RV</div>
+              <h3>Verified reviewer activity</h3>
+              <p>
+                Reviewer and contributor across venues such as IEEE Transactions on Cloud Computing, IEEE Transactions on Network Science and Engineering, IEEE Internet of Things Journal, IEEE Transactions on Big Data, ACM Transactions on Internet Technology, Sustainability, Sensors, Electronics, and other respected outlets.
+              </p>
+              <div class="meta"><span class="badge">Peer review</span><span class="badge">International journals</span></div>
+            </article>
+
+            <article class="lead-card reveal">
+              <div class="icon">ED</div>
+              <h3>Editorial and community roles</h3>
+              <p>
+                Engagement in guest editorial activity and technical community service, including special issues related to advanced cybersecurity, deception techniques, and future communication systems.
+              </p>
+              <div class="meta"><span class="badge">Guest editor</span><span class="badge">Technical service</span></div>
+            </article>
+
+            <article class="lead-card reveal">
+              <div class="icon">MS</div>
+              <h3>Mentoring and supervision</h3>
+              <p>
+                Experience in mentoring and supervising graduate research while contributing to collaborative publications and broader research-group development.
+              </p>
+              <div class="meta"><span class="badge">Mentoring</span><span class="badge">Research guidance</span></div>
+            </article>
+          </div>
+
+          <div class="stats-grid">
+            <div class="stat reveal">
+              <strong>Cybersecurity</strong>
+              <span>Primary identity centered on adaptive defense, trustworthy network design, and intelligent protection mechanisms.</span>
+            </div>
+            <div class="stat reveal">
+              <strong>IoT / Edge</strong>
+              <span>Strong alignment with distributed infrastructures where performance, orchestration, and security must coexist.</span>
+            </div>
+            <div class="stat reveal">
+              <strong>MTD &amp; Deception</strong>
+              <span>Distinctive research signature in dynamic defense, slice isolation, attacker uncertainty, and honeypot-oriented thinking.</span>
+            </div>
+            <div class="stat reveal">
+              <strong>Top-tier venues</strong>
+              <span>Work appearing in respected journals and conferences across information security, IoT, SDN, and service management.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="journey">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <div class="pill"><span class="dot"></span> Journey</div>
+            <h2>A compact view of the profile trajectory.</h2>
+          </div>
+          <p>
+            The path combines academic depth, international collaboration, and a growing specialization in high-value cyber defense topics across SDN, IoT, cloud, and future network architectures.
+          </p>
+        </div>
 
         <div class="timeline">
-          <div class="t-item reveal">
-            <div class="t-dot"></div>
-            <div class="t-card">
-              <div class="head">
-                <h3>Foundation in networks, cloud systems, and optimization</h3>
-                <span class="when">2015–2020</span>
-              </div>
-              <p>Early work focused on wireless systems, cloud resource allocation, SDN, and optimization-driven infrastructure management—building the systems background that later shaped the security research agenda.</p>
-            </div>
-          </div>
-          <div class="t-item reveal">
-            <div class="t-dot"></div>
-            <div class="t-card">
-              <div class="head">
-                <h3>Shift toward intelligent security and cyber-physical trust</h3>
-                <span class="when">2021–2023</span>
-              </div>
-              <p>This stage expanded into intrusion detection, privacy-aware architectures, cloud-IoT protection, network slicing security, and early moving target defense concepts supported by AI and learning-based methods.</p>
-            </div>
-          </div>
-          <div class="t-item reveal">
-            <div class="t-dot"></div>
-            <div class="t-card">
-              <div class="head">
-                <h3>Flagship work on MTD, 5G slicing security, deception, and trust</h3>
-                <span class="when">2024–2026</span>
-              </div>
-              <p>Recent publications sharpen the focus on adaptive defense strategies for next-generation infrastructures: RL-based slice isolation and mutation, cyber deception surveys, EaaS trust architectures, secure path verification, service mesh hardening, and edge-focused DDoS mitigation.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="projects">
-      <div class="container">
-        <span class="eyebrow reveal"><span class="dot"></span> European and international collaborations</span>
-        <h2 class="section-title reveal">Research connected to funded ecosystems, consortium work, and cross-institution collaboration.</h2>
-        <p class="section-copy reveal">
-          The profile is shaped not only by publications, but also by collaboration in large, multi-partner research environments where architecture, security, experimentation, and dissemination must align across institutions and application domains.
-        </p>
-
-        <div class="project-grid">
-          <article class="project reveal">
-            <span class="status">Horizon Europe</span>
-            <h3>RIGOUROUS</h3>
-            <p>A Horizon Europe project focused on cybersecurity, trust, and privacy risks across future mobile networks, devices, computing infrastructure, and next-generation services, with strong emphasis on intelligent and adaptive protection.</p>
-            <div class="meta">
-              <span><strong>Grant agreement:</strong> 101095933</span>
-              <span><strong>Focus:</strong> Trustworthy continuum security, ML/AI-driven orchestration, resilient service frameworks</span>
-            </div>
-            <div class="link-row">
-              <a class="ghost" href="https://rigourous.eu/" target="_blank" rel="noreferrer">Official site</a>
-            </div>
-          </article>
-
-          <article class="project reveal">
-            <span class="status">Horizon 2020</span>
-            <h3>INSPIRE-5Gplus</h3>
-            <p>A European project advancing the security of 5G and beyond by combining trusted execution, verification, liability management, AI/ML, and blockchain-oriented approaches within integrated security architectures.</p>
-            <div class="meta">
-              <span><strong>Grant agreement:</strong> 871808</span>
-              <span><strong>Focus:</strong> 5G and beyond security, trust, architecture, and smart protection mechanisms</span>
-            </div>
-            <div class="link-row">
-              <a class="ghost" href="https://www.inspire-5gplus.eu/" target="_blank" rel="noreferrer">Official site</a>
-            </div>
-          </article>
-
-          <article class="project reveal">
-            <span class="status">Horizon 2020</span>
-            <h3>CHARITY</h3>
-            <p>A collaborative Horizon 2020 project environment supporting research and innovation in modern digital infrastructures, creating space for consortium-level contribution, international coordination, and joint dissemination.</p>
-            <div class="meta">
-              <span><strong>Grant agreement:</strong> 101016509</span>
-              <span><strong>Focus:</strong> Consortium collaboration, international project activity, and cross-partner innovation</span>
-            </div>
-            <div class="link-row">
-              <a class="ghost" href="https://www.charity-project.eu/" target="_blank" rel="noreferrer">Official site</a>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="service">
-      <div class="container">
-        <span class="eyebrow reveal"><span class="dot"></span> Academic service and leadership</span>
-        <h2 class="section-title reveal">Reviewing, editorial contribution, mentoring, and research community engagement.</h2>
-        <p class="section-copy reveal">
-          Beyond publication, the profile reflects active participation in the research ecosystem through peer review, editorial service, technical program activities, and supervision support for graduate researchers.
-        </p>
-
-        <div class="service-grid">
-          <article class="service-panel reveal">
-            <h3>Verified peer review and scholarly service</h3>
+          <article class="timeline-card reveal">
+            <h3>Academic foundation</h3>
             <p>
-              Contributions span journals and venues across cybersecurity, cloud systems, networking, big data, transportation, IoT, and applied AI. The service footprint signals broad disciplinary reach while staying anchored in cybersecurity and intelligent systems.
+              Completed Ph.D. in Computer Science with a profile spanning mathematics and cybersecurity, building the basis for analytical and system-level research.
             </p>
-            <div class="journal-cloud">
-              <span>IEEE Transactions on Cloud Computing</span>
-              <span>IEEE Transactions on Network Science and Engineering</span>
-              <span>IEEE Internet of Things Journal</span>
-              <span>IEEE Transactions on Big Data</span>
-              <span>IEEE Transactions on Network and Service Management</span>
-              <span>ACM Transactions on Internet Technology</span>
-              <span>Sensors</span>
-              <span>Electronics</span>
-              <span>Sustainability</span>
-              <span>Remote Sensing</span>
-              <span>The Journal of Supercomputing</span>
-              <span>International Journal of Communication Systems</span>
-            </div>
+            <div class="meta"><span class="badge">Ph.D.</span><span class="badge">2020</span></div>
           </article>
-
-          <article class="service-panel reveal">
-            <h3>Leadership signals</h3>
-            <div class="lead-list">
-              <div class="lead-item">
-                <strong>Guest Editor</strong>
-                <span>Editorial contribution in venues such as Cluster Computing and special issues focused on advanced cybersecurity for 5G/6G and beyond.</span>
-              </div>
-              <div class="lead-item">
-                <strong>Consortium collaborator</strong>
-                <span>Active involvement in multi-partner international research projects, where technical architecture, collaboration, and dissemination intersect.</span>
-              </div>
-              <div class="lead-item">
-                <strong>Mentoring and supervision</strong>
-                <span>Experience supporting master’s and doctoral students, contributing to research direction, publication development, and technical execution.</span>
-              </div>
-            </div>
+          <article class="timeline-card reveal">
+            <h3>Security specialization</h3>
+            <p>
+              Expanded into DDoS defense, MTD, SDN security, IoT protection, cyber deception, and RL-based mitigation across journal and conference outputs.
+            </p>
+            <div class="meta"><span class="badge">Adaptive defense</span><span class="badge">2022–2026</span></div>
+          </article>
+          <article class="timeline-card reveal">
+            <h3>International research presence</h3>
+            <p>
+              Strengthened profile through collaboration in European projects, peer-review service, editorial activity, and recognition in highly visible scientific listings.
+            </p>
+            <div class="meta"><span class="badge">EU collaboration</span><span class="badge">Research leadership</span></div>
           </article>
         </div>
       </div>
     </section>
 
-    <section class="section">
+    <section id="contact">
       <div class="container">
-        <div class="footer-card reveal">
+        <div class="contact-card reveal visible">
           <div>
-            <h3>Built for visibility, credibility, and research identity.</h3>
+            <div class="pill"><span class="dot"></span> Connect</div>
+            <h2>Open to high-level research collaboration in cybersecurity.</h2>
             <p>
-              This page is designed as a high-end personal research profile: publication-forward, collaboration-aware, and visually aligned with cybersecurity, trust, and next-generation infrastructure research.
+              This website is designed as a focused research identity — security first, visually clean, and centered on the strongest themes of the portfolio. For deeper exploration, publications and projects can be browsed section by section without overwhelming the landing experience.
             </p>
-            <div class="footer-note">No profile photo. No CV block. English-only presentation with a premium light-first visual system.</div>
           </div>
-          <div class="footer-actions">
-            <a class="cta" href="https://orcid.org/0000-0002-4932-1660" target="_blank" rel="noreferrer">ORCID</a>
-            <a class="ghost" href="https://scholar.google.com/citations?hl=en&user=c3HYEEYAAAAJ" target="_blank" rel="noreferrer">Google Scholar</a>
-            <button class="ghost" onclick="window.print()">Print / Save PDF</button>
+          <div class="contact-actions">
+            <a class="cta" href="https://orcid.org/0000-0002-4932-1660" target="_blank" rel="noreferrer">Open ORCID</a>
+            <a class="ghost" href="#publications">View publications</a>
           </div>
         </div>
       </div>
     </section>
   </main>
 
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"Person",
-    "name":"Amir Javadpour",
-    "jobTitle":"Senior Cybersecurity Researcher",
-    "sameAs":[
-      "https://orcid.org/0000-0002-4932-1660",
-      "https://scholar.google.com/citations?hl=en&user=c3HYEEYAAAAJ",
-      "https://rigourous.eu/",
-      "https://www.inspire-5gplus.eu/",
-      "https://www.charity-project.eu/"
-    ],
-    "knowsAbout":[
-      "Cybersecurity",
-      "Moving Target Defense",
-      "DDoS Mitigation",
-      "5G/6G Security",
-      "Service Mesh Security",
-      "Cloud-Edge Security",
-      "Cyber Deception",
-      "Reinforcement Learning for Security"
-    ]
-  }
-  </script>
+  <footer>
+    <div class="container">
+      <div class="footer-row">
+        <span>© <span id="year"></span> Amir Javadpour — Cybersecurity Research Profile</span>
+        <span>Designed for a clean, security-first personal research presence.</span>
+      </div>
+    </div>
+  </footer>
 
   <script>
-    const publications = [
-      {
-        year: 2026,
-        title: "Moving target defense for DDoS mitigation with shuffling of critical edge(s) connections",
-        venue: "Journal of Information Security and Applications",
-        citations: "2026",
-        tags: ["MTD","DDoS","Edge","JISA"]
-      },
-      {
-        year: 2026,
-        title: "EaaS/PIN Synergy: Advances and Challenges Secure Path Verification",
-        venue: "IEEE Internet of Things Journal",
-        citations: "2026",
-        tags: ["EaaS","Trust","Secure Path Verification","IoT"]
-      },
-      {
-        year: 2026,
-        title: "Beyond Reinforcement Learning for Network Security: A Comprehensive Survey and Tutorial",
-        venue: "Journal of Information Security and Applications",
-        citations: "2026",
-        tags: ["Survey","RL","Network Security","JISA"]
-      },
-      {
-        year: 2025,
-        title: "Improving the Security of Service Mesh in Kubernetes",
-        venue: "IEEE International Conference on Parallel and Distributed Systems",
-        citations: "2025",
-        tags: ["Kubernetes","Service Mesh","Cloud-Native","Conference"]
-      },
-      {
-        year: 2025,
-        title: "An optimized reinforcement learning based MTD mutation strategy for securing edge IoT against DDoS attack",
-        venue: "Journal of Information Security and Applications",
-        citations: "4 citations",
-        tags: ["RL","MTD","IoT","DDoS"]
-      },
-      {
-        year: 2025,
-        title: "Detecting malicious nodes using game theory and reinforcement learning in software-defined networks",
-        venue: "International Journal of Information Security",
-        citations: "2 citations",
-        tags: ["SDN","Game Theory","RL","Threat Detection"]
-      },
-      {
-        year: 2024,
-        title: "5G slice mutation to overcome distributed denial of service attacks using reinforcement learning",
-        venue: "Security of Information and Networks",
-        citations: "4 citations",
-        tags: ["5G","Slice Mutation","DDoS","RL"]
-      },
-      {
-        year: 2024,
-        title: "Deploying testbed Docker-based application for Encryption as a Service in Kubernetes",
-        venue: "International Conference on Software, Telecommunications and Computer Networks",
-        citations: "12 citations",
-        tags: ["Kubernetes","EaaS","Testbed","Cloud"]
-      },
-      {
-        year: 2024,
-        title: "Encryption as a service (EaaS): Introducing the full-cloud-fog architecture for enhanced performance and security",
-        venue: "IEEE Internet of Things Journal",
-        citations: "8 citations",
-        tags: ["EaaS","Cloud-Fog","IoT","Architecture"]
-      },
-      {
-        year: 2024,
-        title: "Encryption as a service for IoT: opportunities, challenges and solutions",
-        venue: "IEEE Internet of Things Journal",
-        citations: "63 citations",
-        tags: ["EaaS","IoT","Survey","Security"]
-      },
-      {
-        year: 2024,
-        title: "A comprehensive survey on cyber deception techniques to improve honeypot performance",
-        venue: "Computers & Security",
-        citations: "173 citations",
-        tags: ["Cyber Deception","Honeypots","Survey","Computers & Security"]
-      },
-      {
-        year: 2024,
-        title: "A mathematical model for analyzing honeynets and their cyber deception techniques",
-        venue: "International Conference on Engineering of Complex Computer Systems",
-        citations: "16 citations",
-        tags: ["Honeynets","Deception","Modeling","Conference"]
-      },
-      {
-        year: 2024,
-        title: "Reinforcement learning-based slice isolation against DDoS attacks in beyond 5G networks",
-        venue: "IEEE Transactions on Network and Service Management",
-        citations: "61 citations",
-        tags: ["Beyond 5G","Slice Isolation","RL","DDoS"]
-      },
-      {
-        year: 2023,
-        title: "SCEMA: An SDN-oriented cost-effective edge-based MTD approach",
-        venue: "IEEE Transactions on Information Forensics and Security",
-        citations: "39 citations",
-        tags: ["MTD","SDN","Edge","IEEE TIFS"]
-      },
-      {
-        year: 2023,
-        title: "Cybersecurity fusion: Leveraging Mafia game tactics and reinforcement learning for botnet detection",
-        venue: "IEEE GLOBECOM",
-        citations: "4 citations",
-        tags: ["Botnet","RL","Cyber Defense","Conference"]
-      },
-      {
-        year: 2023,
-        title: "A cost-effective MTD approach for DDoS attacks in software-defined networks",
-        venue: "IEEE GLOBECOM",
-        citations: "16 citations",
-        tags: ["MTD","DDoS","SDN","Conference"]
-      },
-      {
-        year: 2023,
-        title: "A Cost-Effective DDoS Protection Based on MTD in Software-Defined Networks",
-        venue: "IEEE Transactions on Dependable and Secure Computing",
-        citations: "2023",
-        tags: ["MTD","DDoS","SDN","IEEE TDSC"]
-      },
-      {
-        year: 2023,
-        title: "Improving Microservices Security",
-        venue: "ICECCS",
-        citations: "2023",
-        tags: ["Microservices","Cloud-Native","Security","Conference"]
-      }
-    ];
+    const body = document.body;
+    const progress = document.getElementById('progress');
+    const year = document.getElementById('year');
+    const cursorGlow = document.getElementById('cursorGlow');
+    const themeToggle = document.getElementById('themeToggle');
+    const revealEls = [...document.querySelectorAll('.reveal')];
+    const navLinks = [...document.querySelectorAll('.links a')];
+    const filterButtons = [...document.querySelectorAll('.filter-btn')];
+    const pubCards = [...document.querySelectorAll('.pub-card')];
+    const pubSearch = document.getElementById('pubSearch');
 
-    const filterOptions = ["All","MTD","DDoS","RL","5G","IoT","Kubernetes","EaaS","Cyber Deception","SDN","Survey"];
-    const pubGrid = document.getElementById("pubGrid");
-    const filters = document.getElementById("filters");
-    const pubSearch = document.getElementById("pubSearch");
-    let activeFilter = "All";
+    year.textContent = new Date().getFullYear();
 
-    function makeFilterButtons(){
-      filterOptions.forEach(option=>{
-        const btn = document.createElement("button");
-        btn.className = "filter" + (option === "All" ? " active" : "");
-        btn.textContent = option;
-        btn.type = "button";
-        btn.addEventListener("click", ()=>{
-          activeFilter = option;
-          document.querySelectorAll(".filter").forEach(b=>b.classList.remove("active"));
-          btn.classList.add("active");
-          renderPublications();
-        });
-        filters.appendChild(btn);
-      });
-    }
+    const savedTheme = localStorage.getItem('aj-theme');
+    if(savedTheme === 'night') body.classList.add('theme-night');
 
-    function renderPublications(){
-      const q = pubSearch.value.trim().toLowerCase();
-      const items = publications.filter(p=>{
-        const text = `${p.title} ${p.venue} ${p.tags.join(" ")}`.toLowerCase();
-        const qMatch = !q || text.includes(q);
-        const fMatch = activeFilter === "All" || p.tags.some(t => t.toLowerCase() === activeFilter.toLowerCase());
-        return qMatch && fMatch;
-      }).sort((a,b)=> b.year - a.year || a.title.localeCompare(b.title));
-
-      if(!items.length){
-        pubGrid.innerHTML = '<div class="empty">No publication matched the current search and filter combination.</div>';
-        return;
-      }
-
-      pubGrid.innerHTML = items.map(p => `
-        <article class="pub-card">
-          <div class="pub-meta">
-            <span class="year-badge">${p.year}</span>
-            <span class="pub-cites">${p.citations}</span>
-          </div>
-          <h4>${p.title}</h4>
-          <span class="venue">${p.venue}</span>
-          <div class="chips">
-            ${p.tags.map(tag => `<span class="chip">${tag}</span>`).join("")}
-          </div>
-        </article>
-      `).join("");
-    }
-
-    makeFilterButtons();
-    renderPublications();
-    pubSearch.addEventListener("input", renderPublications);
-
-    const progress = document.getElementById("progress");
-    const reveals = document.querySelectorAll(".reveal");
-    const sections = document.querySelectorAll("section[id], header.hero");
-    const navLinks = document.querySelectorAll(".nav-links a");
-
-    function updateProgress(){
-      const scrollable = document.documentElement.scrollHeight - window.innerHeight;
-      const val = scrollable > 0 ? window.scrollY / scrollable : 0;
-      progress.style.transform = `scaleX(${Math.min(1, Math.max(0, val))})`;
-    }
-
-    const revealObserver = new IntersectionObserver((entries)=>{
-      entries.forEach(entry=>{
-        if(entry.isIntersecting){
-          entry.target.classList.add("show");
-          revealObserver.unobserve(entry.target);
-        }
-      });
-    }, {threshold:0.14});
-
-    reveals.forEach(el=>revealObserver.observe(el));
-
-    function setActiveNav(){
-      let current = "";
-      sections.forEach(sec=>{
-        const top = sec.getBoundingClientRect().top;
-        if(top <= 120){
-          current = sec.id || "";
-        }
-      });
-      navLinks.forEach(link=>{
-        const hash = link.getAttribute("href").replace("#","");
-        link.classList.toggle("active", hash === current);
-      });
-    }
-
-    window.addEventListener("scroll", ()=>{
-      updateProgress();
-      setActiveNav();
-    }, {passive:true});
-    updateProgress();
-    setActiveNav();
-
-    const themeToggle = document.getElementById("themeToggle");
-    const storedTheme = localStorage.getItem("aj-theme");
-    if(storedTheme === "night"){ document.body.classList.add("theme-night"); }
-    themeToggle.addEventListener("click", ()=>{
-      document.body.classList.toggle("theme-night");
-      localStorage.setItem("aj-theme", document.body.classList.contains("theme-night") ? "night" : "day");
+    themeToggle.addEventListener('click', () => {
+      body.classList.toggle('theme-night');
+      localStorage.setItem('aj-theme', body.classList.contains('theme-night') ? 'night' : 'light');
     });
 
-    // subtle network mesh background
-    const canvas = document.getElementById("meshCanvas");
-    const ctx = canvas.getContext("2d");
-    let points = [];
-    function resizeCanvas(){
-      const dpr = Math.min(window.devicePixelRatio || 1, 2);
-      canvas.width = window.innerWidth * dpr;
-      canvas.height = window.innerHeight * dpr;
-      canvas.style.width = window.innerWidth + "px";
-      canvas.style.height = window.innerHeight + "px";
-      ctx.setTransform(dpr,0,0,dpr,0,0);
-      const count = Math.max(24, Math.floor(window.innerWidth / 62));
-      points = Array.from({length:count}, ()=>({
-        x: Math.random()*window.innerWidth,
-        y: Math.random()*window.innerHeight,
-        vx: (Math.random()-.5)*0.22,
-        vy: (Math.random()-.5)*0.22,
-        r: Math.random()*2.1 + .8
-      }));
+    const updateProgress = () => {
+      const total = document.documentElement.scrollHeight - window.innerHeight;
+      const scrolled = total > 0 ? window.scrollY / total : 0;
+      progress.style.transform = `scaleX(${Math.min(Math.max(scrolled,0),1)})`;
+    };
+    updateProgress();
+    window.addEventListener('scroll', updateProgress, { passive:true });
+
+    if (window.matchMedia('(prefers-reduced-motion: no-preference)').matches) {
+      window.addEventListener('mousemove', (e) => {
+        cursorGlow.style.transform = `translate(${e.clientX - 160}px, ${e.clientY - 160}px)`;
+      }, { passive:true });
+    } else {
+      cursorGlow.style.display = 'none';
     }
-    function drawMesh(){
-      ctx.clearRect(0,0,window.innerWidth,window.innerHeight);
-      const accent = getComputedStyle(document.body).getPropertyValue("--accent").trim() || "#246bff";
-      const isNight = document.body.classList.contains("theme-night");
-      for(let i=0;i<points.length;i++){
-        const p = points[i];
-        p.x += p.vx; p.y += p.vy;
-        if(p.x < 0 || p.x > window.innerWidth) p.vx *= -1;
-        if(p.y < 0 || p.y > window.innerHeight) p.vy *= -1;
-      }
-      for(let i=0;i<points.length;i++){
-        for(let j=i+1;j<points.length;j++){
-          const a = points[i], b = points[j];
-          const dx = a.x - b.x, dy = a.y - b.y;
-          const dist = Math.hypot(dx,dy);
-          if(dist < 140){
-            ctx.strokeStyle = isNight ? `rgba(97,164,255,${(1 - dist/140)*0.12})` : `rgba(36,107,255,${(1 - dist/140)*0.10})`;
-            ctx.lineWidth = 1;
-            ctx.beginPath();
-            ctx.moveTo(a.x,a.y);
-            ctx.lineTo(b.x,b.y);
-            ctx.stroke();
-          }
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting){
+          entry.target.classList.add('visible');
         }
-      }
-      points.forEach(p=>{
-        ctx.fillStyle = isNight ? "rgba(178,140,255,.40)" : "rgba(36,107,255,.24)";
-        ctx.beginPath();
-        ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
-        ctx.fill();
       });
-      requestAnimationFrame(drawMesh);
-    }
-    window.addEventListener("resize", resizeCanvas);
-    resizeCanvas();
-    drawMesh();
+    }, { threshold:0.18 });
+    revealEls.forEach(el => observer.observe(el));
+
+    const sections = navLinks.map(link => document.querySelector(link.getAttribute('href'))).filter(Boolean);
+    const sectionObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting){
+          navLinks.forEach(link => link.classList.toggle('active', link.getAttribute('href') === `#${entry.target.id}`));
+        }
+      });
+    }, { threshold:0.35, rootMargin:'-20% 0px -45% 0px' });
+    sections.forEach(section => sectionObserver.observe(section));
+
+    let activeFilter = 'all';
+    const applyFilters = () => {
+      const q = (pubSearch.value || '').trim().toLowerCase();
+      pubCards.forEach(card => {
+        const categories = (card.dataset.category || '').split(/\s+/);
+        const hay = (card.dataset.search || card.innerText || '').toLowerCase();
+        const filterMatch = activeFilter === 'all' || categories.includes(activeFilter);
+        const searchMatch = !q || hay.includes(q);
+        card.classList.toggle('hide', !(filterMatch && searchMatch));
+      });
+    };
+
+    filterButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterButtons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        activeFilter = btn.dataset.filter;
+        applyFilters();
+      });
+    });
+    pubSearch.addEventListener('input', applyFilters);
+    applyFilters();
   </script>
 </body>
 </html>
