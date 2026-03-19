@@ -1,18 +1,1957 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <title>صفحه شخصی جوادپور</title>
-    <style>
-        body { font-family: sans-serif; display: flex; justify-content: center; align-items: center; height: 100vh; background-color: #f0f2f5; }
-        .card { background: white; padding: 2rem; border-radius: 15px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); text-align: center; }
-        h1 { color: #333; }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Amir Javadpour | Cybersecurity Research Profile</title>
+  <meta name="description" content="A premium bilingual research profile for Amir Javadpour — cybersecurity, MTD, DDoS defense, 5G/6G security, cloud-edge security, service mesh protection, and cyber deception." />
+  <style>
+    :root {
+      --bg: #f4f7fb;
+      --bg-soft: #eef3fb;
+      --panel: rgba(255,255,255,.78);
+      --panel-strong: rgba(255,255,255,.92);
+      --border: rgba(15, 23, 42, .10);
+      --text: #0f172a;
+      --muted: #475569;
+      --accent: #0ea5e9;
+      --accent-2: #7c3aed;
+      --accent-3: #f59e0b;
+      --success: #16a34a;
+      --shadow: 0 18px 50px rgba(15,23,42,.08);
+      --radius-xl: 28px;
+      --radius-lg: 22px;
+      --radius-md: 16px;
+      --grid: rgba(14,165,233,.08);
+      --hero-glow: radial-gradient(circle at 20% 20%, rgba(14,165,233,.22), transparent 35%),
+                    radial-gradient(circle at 80% 10%, rgba(124,58,237,.18), transparent 30%),
+                    radial-gradient(circle at 55% 75%, rgba(245,158,11,.16), transparent 28%);
+      --line: linear-gradient(90deg, rgba(14,165,233,0), rgba(14,165,233,.45), rgba(124,58,237,.25), rgba(14,165,233,0));
+    }
+
+    body.theme-dark {
+      --bg: #07111f;
+      --bg-soft: #0b1628;
+      --panel: rgba(9,16,29,.70);
+      --panel-strong: rgba(9,16,29,.86);
+      --border: rgba(255,255,255,.08);
+      --text: #eef5ff;
+      --muted: #bfd0ea;
+      --accent: #38bdf8;
+      --accent-2: #a78bfa;
+      --accent-3: #fbbf24;
+      --success: #4ade80;
+      --shadow: 0 18px 50px rgba(0,0,0,.28);
+      --grid: rgba(56,189,248,.09);
+      --hero-glow: radial-gradient(circle at 20% 20%, rgba(56,189,248,.18), transparent 35%),
+                    radial-gradient(circle at 80% 10%, rgba(167,139,250,.18), transparent 30%),
+                    radial-gradient(circle at 55% 75%, rgba(251,191,36,.12), transparent 28%);
+      --line: linear-gradient(90deg, rgba(56,189,248,0), rgba(56,189,248,.45), rgba(167,139,250,.25), rgba(56,189,248,0));
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Vazirmatn, Inter, "Segoe UI", Tahoma, Arial, sans-serif;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.50), rgba(255,255,255,0)) no-repeat,
+        var(--hero-glow),
+        linear-gradient(180deg, var(--bg), var(--bg-soft));
+      color: var(--text);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(var(--grid) 1px, transparent 1px),
+        linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+      background-size: 34px 34px;
+      opacity: .45;
+      pointer-events: none;
+      mask-image: linear-gradient(180deg, rgba(0,0,0,.75), transparent 92%);
+      z-index: -2;
+    }
+
+    .blob, .blob::before, .blob::after {
+      position: fixed;
+      border-radius: 50%;
+      filter: blur(46px);
+      pointer-events: none;
+      z-index: -1;
+      opacity: .55;
+    }
+    .blob {
+      width: 340px; height: 340px; top: 8%; left: -90px;
+      background: rgba(14,165,233,.18);
+      animation: drift 18s ease-in-out infinite alternate;
+    }
+    .blob::before {
+      content: "";
+      width: 280px; height: 280px; right: -1080px; top: 90px;
+      background: rgba(124,58,237,.16);
+      animation: drift 22s ease-in-out infinite alternate-reverse;
+    }
+    .blob::after {
+      content: "";
+      width: 240px; height: 240px; left: 220px; top: 540px;
+      background: rgba(245,158,11,.14);
+      animation: drift 25s ease-in-out infinite alternate;
+    }
+
+    @keyframes drift {
+      from { transform: translate3d(0,0,0) scale(1); }
+      to { transform: translate3d(40px, -22px, 0) scale(1.06); }
+    }
+
+    .progress {
+      position: fixed;
+      inset-inline: 0;
+      top: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--accent), var(--accent-2), var(--accent-3));
+      transform-origin: 0 50%;
+      transform: scaleX(0);
+      z-index: 999;
+    }
+
+    .container {
+      width: min(1240px, calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 12px;
+      z-index: 50;
+      padding-top: 12px;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      padding: 14px 18px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      background: color-mix(in srgb, var(--panel-strong) 84%, transparent);
+      backdrop-filter: blur(16px);
+      box-shadow: var(--shadow);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      min-width: 0;
+    }
+
+    .brand-mark {
+      width: 48px;
+      height: 48px;
+      border-radius: 16px;
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2) 58%, var(--accent-3));
+      box-shadow: 0 10px 24px rgba(14,165,233,.22);
+      display: grid;
+      place-items: center;
+      color: white;
+      font-weight: 800;
+      letter-spacing: .06em;
+      font-size: 15px;
+    }
+
+    .brand-title {
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+      gap: 3px;
+    }
+
+    .brand-title strong {
+      font-size: .98rem;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .brand-title span {
+      color: var(--muted);
+      font-size: .84rem;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .nav-links a,
+    .ghost-btn,
+    .chip-btn,
+    .pill,
+    button {
+      font: inherit;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      text-decoration: none;
+      padding: 10px 14px;
+      border-radius: 999px;
+      transition: .25s ease;
+      font-weight: 600;
+    }
+
+    .nav-links a:hover { color: var(--text); background: rgba(14,165,233,.08); }
+
+    .controls {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .ghost-btn {
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,.55);
+      color: var(--text);
+      padding: 10px 14px;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: .22s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      min-height: 42px;
+    }
+    body.theme-dark .ghost-btn { background: rgba(255,255,255,.04); }
+    .ghost-btn:hover { transform: translateY(-1px); box-shadow: 0 10px 24px rgba(14,165,233,.10); }
+
+    .hero {
+      padding: 70px 0 28px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap: 22px;
+      align-items: stretch;
+    }
+
+    .panel {
+      border: 1px solid var(--border);
+      background: var(--panel);
+      backdrop-filter: blur(18px);
+      box-shadow: var(--shadow);
+      border-radius: var(--radius-xl);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .panel::before {
+      content: "";
+      position: absolute;
+      inset: 0 auto auto 0;
+      width: 100%;
+      height: 1px;
+      background: var(--line);
+      opacity: .9;
+    }
+
+    .hero-main {
+      padding: 34px;
+      min-height: 610px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      isolation: isolate;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 16px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, rgba(14,165,233,.10), rgba(124,58,237,.08));
+      color: var(--text);
+      width: fit-content;
+      border: 1px solid rgba(14,165,233,.16);
+      font-weight: 700;
+      font-size: .9rem;
+    }
+
+    .eyebrow i {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      box-shadow: 0 0 0 8px rgba(14,165,233,.10);
+    }
+
+    h1 {
+      font-size: clamp(2.5rem, 6vw, 5.15rem);
+      line-height: .95;
+      margin: 20px 0 16px;
+      letter-spacing: -0.05em;
+      max-width: 12ch;
+    }
+
+    .gradient-text {
+      background: linear-gradient(135deg, var(--accent) 0%, var(--accent-2) 45%, var(--accent-3) 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      display: inline-block;
+    }
+
+    .hero-copy {
+      color: var(--muted);
+      font-size: 1.06rem;
+      line-height: 1.9;
+      max-width: 67ch;
+      margin-bottom: 20px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin: 26px 0 18px;
+    }
+
+    .primary-btn,
+    .secondary-btn {
+      border-radius: 999px;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 14px 20px;
+      font-weight: 800;
+      border: 1px solid transparent;
+      transition: .25s ease;
+      min-height: 48px;
+    }
+
+    .primary-btn {
+      color: white;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      box-shadow: 0 16px 34px rgba(14,165,233,.22);
+    }
+    .secondary-btn {
+      color: var(--text);
+      background: rgba(255,255,255,.62);
+      border-color: var(--border);
+    }
+    body.theme-dark .secondary-btn { background: rgba(255,255,255,.04); }
+    .primary-btn:hover, .secondary-btn:hover { transform: translateY(-2px); }
+
+    .hero-badges {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 4px;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.58);
+      border: 1px solid var(--border);
+      color: var(--text);
+      font-weight: 700;
+      font-size: .92rem;
+    }
+    body.theme-dark .pill { background: rgba(255,255,255,.04); }
+
+    .mini-metrics {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0,1fr));
+      gap: 14px;
+      margin-top: 28px;
+    }
+
+    .metric {
+      border: 1px solid var(--border);
+      background: linear-gradient(180deg, rgba(255,255,255,.72), rgba(255,255,255,.52));
+      border-radius: 20px;
+      padding: 18px;
+      min-height: 120px;
+    }
+    body.theme-dark .metric { background: linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.03)); }
+    .metric .value {
+      font-size: clamp(1.55rem, 3vw, 2.35rem);
+      font-weight: 900;
+      letter-spacing: -0.04em;
+      margin-bottom: 6px;
+    }
+    .metric .label {
+      color: var(--muted);
+      line-height: 1.6;
+      font-size: .96rem;
+    }
+
+    .hero-side {
+      padding: 24px;
+      min-height: 610px;
+      display: grid;
+      gap: 16px;
+      grid-template-rows: auto auto 1fr;
+    }
+
+    .profile-card {
+      padding: 22px;
+      border-radius: 26px;
+      border: 1px solid var(--border);
+      background: linear-gradient(180deg, rgba(255,255,255,.86), rgba(255,255,255,.62));
+      position: relative;
+      overflow: hidden;
+    }
+    body.theme-dark .profile-card { background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03)); }
+
+    .profile-top {
+      display: flex;
+      gap: 18px;
+      align-items: center;
+      margin-bottom: 18px;
+    }
+
+    .avatar {
+      width: 108px; height: 108px; border-radius: 28px;
+      background:
+        radial-gradient(circle at 35% 35%, rgba(255,255,255,.95), rgba(255,255,255,.25) 30%, transparent 31%),
+        linear-gradient(135deg, var(--accent), var(--accent-2) 60%, var(--accent-3));
+      display: grid; place-items: center;
+      color: white; font-weight: 900; font-size: 2rem;
+      box-shadow: 0 18px 36px rgba(14,165,233,.20);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .avatar::after {
+      content: "";
+      position: absolute;
+      inset: 8px;
+      border-radius: 22px;
+      border: 1px solid rgba(255,255,255,.25);
+    }
+
+    .profile-name {
+      font-size: 1.5rem;
+      margin: 0 0 8px;
+      font-weight: 900;
+      line-height: 1.2;
+    }
+
+    .profile-role {
+      color: var(--muted);
+      line-height: 1.8;
+      margin: 0;
+    }
+
+    .trust-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-top: 12px;
+    }
+
+    .trust-item {
+      padding: 14px;
+      border-radius: 18px;
+      background: rgba(14,165,233,.06);
+      border: 1px solid rgba(14,165,233,.10);
+    }
+    body.theme-dark .trust-item { background: rgba(56,189,248,.05); }
+    .trust-item strong { display:block; margin-bottom: 6px; font-size: 1rem; }
+    .trust-item span { color: var(--muted); line-height: 1.55; font-size: .92rem; }
+
+    .radar {
+      position: relative;
+      border-radius: 28px;
+      min-height: 240px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      background:
+        radial-gradient(circle at center, rgba(14,165,233,.12), transparent 42%),
+        repeating-radial-gradient(circle at center, rgba(14,165,233,.14), rgba(14,165,233,.14) 1px, transparent 1px, transparent 34px),
+        linear-gradient(180deg, rgba(255,255,255,.72), rgba(255,255,255,.56));
+    }
+    body.theme-dark .radar { background:
+        radial-gradient(circle at center, rgba(56,189,248,.12), transparent 42%),
+        repeating-radial-gradient(circle at center, rgba(56,189,248,.14), rgba(56,189,248,.14) 1px, transparent 1px, transparent 34px),
+        linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.03)); }
+
+    .radar::before, .radar::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, transparent 49.5%, rgba(14,165,233,.16) 50%, transparent 50.5%),
+                  linear-gradient(transparent 49.5%, rgba(14,165,233,.16) 50%, transparent 50.5%);
+    }
+    .radar-sweep {
+      position: absolute;
+      width: 58%; height: 58%;
+      inset: 21%;
+      background: conic-gradient(from 0deg, rgba(14,165,233,0), rgba(14,165,233,.30), rgba(14,165,233,0));
+      border-radius: 50%;
+      filter: blur(2px);
+      animation: spin 7s linear infinite;
+      transform-origin: center;
+    }
+    .radar-dot {
+      position: absolute;
+      width: 10px; height: 10px;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      border-radius: 50%;
+      box-shadow: 0 0 0 8px rgba(14,165,233,.10);
+    }
+    .radar-dot.d1 { top: 28%; left: 62%; }
+    .radar-dot.d2 { top: 52%; left: 30%; }
+    .radar-dot.d3 { top: 70%; left: 67%; }
+    .radar-copy {
+      position: absolute;
+      inset-inline: 18px;
+      bottom: 16px;
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      align-items: end;
+    }
+    .radar-copy strong { font-size: 1.05rem; }
+    .radar-copy span { color: var(--muted); font-size: .9rem; display: block; margin-top: 5px; }
+
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    .impact-strip {
+      margin-top: 12px;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0,1fr));
+      gap: 10px;
+    }
+
+    .impact-chip {
+      padding: 14px;
+      border-radius: 18px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,.56);
+      text-align: center;
+    }
+    body.theme-dark .impact-chip { background: rgba(255,255,255,.04); }
+    .impact-chip strong { display:block; font-size: 1.25rem; margin-bottom: 4px; }
+    .impact-chip span { color: var(--muted); font-size: .9rem; }
+
+    section { padding: 18px 0; }
+
+    .section-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 18px;
+      margin-bottom: 18px;
+      flex-wrap: wrap;
+    }
+
+    .section-title h2 {
+      font-size: clamp(1.6rem, 3.3vw, 3rem);
+      letter-spacing: -0.04em;
+      margin: 0 0 8px;
+      line-height: 1;
+    }
+
+    .section-title p {
+      margin: 0;
+      color: var(--muted);
+      max-width: 70ch;
+      line-height: 1.9;
+    }
+
+    .section-tag {
+      color: var(--accent-2);
+      font-weight: 800;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      font-size: .8rem;
+    }
+
+    .about-grid,
+    .signature-grid,
+    .project-grid,
+    .lead-grid,
+    .footer-grid {
+      display: grid;
+      gap: 18px;
+    }
+
+    .about-grid { grid-template-columns: 1.05fr .95fr; }
+    .signature-grid { grid-template-columns: repeat(3, minmax(0,1fr)); }
+    .project-grid { grid-template-columns: repeat(3, minmax(0,1fr)); }
+    .lead-grid { grid-template-columns: .9fr 1.1fr; }
+    .footer-grid { grid-template-columns: 1fr auto; align-items: center; }
+
+    .card {
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      background: var(--panel);
+      backdrop-filter: blur(14px);
+      padding: 24px;
+      box-shadow: var(--shadow);
+      height: 100%;
+    }
+
+    .card h3 {
+      margin: 0 0 10px;
+      font-size: 1.18rem;
+      line-height: 1.35;
+    }
+
+    .card p, .card li {
+      color: var(--muted);
+      line-height: 1.85;
+    }
+
+    .bio-lines {
+      display: grid;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .bio-line {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      padding: 14px 0;
+      border-bottom: 1px dashed var(--border);
+    }
+    .bio-line:last-child { border-bottom: none; padding-bottom: 0; }
+
+    .bio-bullet {
+      width: 34px; height: 34px; flex: 0 0 34px;
+      display: grid; place-items: center;
+      border-radius: 12px;
+      background: rgba(14,165,233,.10);
+      color: var(--accent);
+      font-weight: 900;
+    }
+
+    .chip-cloud {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 11px 14px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,.62);
+      font-weight: 700;
+      color: var(--text);
+    }
+    body.theme-dark .chip { background: rgba(255,255,255,.04); }
+
+    .signature-card {
+      position: relative;
+      overflow: hidden;
+      padding: 24px;
+      border-radius: 24px;
+      border: 1px solid var(--border);
+      background: linear-gradient(180deg, rgba(255,255,255,.84), rgba(255,255,255,.68));
+      min-height: 220px;
+    }
+    body.theme-dark .signature-card { background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.04)); }
+    .signature-card::after {
+      content: "";
+      position: absolute;
+      width: 160px; height: 160px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(14,165,233,.22), transparent 70%);
+      inset-inline-end: -30px;
+      top: -30px;
+    }
+    .signature-card h3 { font-size: 1.28rem; margin-bottom: 12px; }
+
+    .tools-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 16px;
+    }
+
+    .tools-row span {
+      padding: 9px 12px;
+      border-radius: 999px;
+      background: rgba(14,165,233,.08);
+      border: 1px solid rgba(14,165,233,.12);
+      font-size: .9rem;
+      color: var(--text);
+      font-weight: 700;
+    }
+
+    .pub-toolbar {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 12px;
+      margin-bottom: 16px;
+      align-items: center;
+    }
+
+    .searchbox {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 0 16px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,.75);
+      min-height: 52px;
+    }
+    body.theme-dark .searchbox { background: rgba(255,255,255,.05); }
+    .searchbox input {
+      border: none;
+      background: transparent;
+      color: var(--text);
+      width: 100%;
+      outline: none;
+      font-size: .98rem;
+      font-family: inherit;
+    }
+
+    .filter-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: flex-end;
+    }
+
+    .chip-btn {
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,.68);
+      color: var(--text);
+      padding: 11px 14px;
+      border-radius: 999px;
+      cursor: pointer;
+      font-weight: 700;
+      transition: .2s ease;
+    }
+    body.theme-dark .chip-btn { background: rgba(255,255,255,.04); }
+    .chip-btn.active,
+    .chip-btn:hover {
+      background: linear-gradient(135deg, rgba(14,165,233,.14), rgba(124,58,237,.12));
+      border-color: rgba(14,165,233,.24);
+    }
+
+    .pub-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0,1fr));
+      gap: 16px;
+    }
+
+    .pub-card {
+      border: 1px solid var(--border);
+      background: linear-gradient(180deg, rgba(255,255,255,.84), rgba(255,255,255,.66));
+      border-radius: 22px;
+      padding: 22px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      min-height: 240px;
+      transition: .22s ease;
+    }
+    body.theme-dark .pub-card { background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.04)); }
+    .pub-card:hover { transform: translateY(-4px); box-shadow: 0 22px 48px rgba(14,165,233,.10); }
+
+    .pub-meta {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .pub-year,
+    .pub-tag {
+      border-radius: 999px;
+      padding: 8px 12px;
+      font-size: .82rem;
+      font-weight: 800;
+    }
+    .pub-year { background: rgba(124,58,237,.10); color: var(--accent-2); }
+    .pub-tag { background: rgba(14,165,233,.10); color: var(--accent); }
+
+    .pub-title {
+      font-size: 1.14rem;
+      line-height: 1.55;
+      font-weight: 800;
+      margin: 0;
+    }
+    .pub-authors,
+    .pub-venue,
+    .pub-desc {
+      color: var(--muted);
+      line-height: 1.8;
+      margin: 0;
+      font-size: .95rem;
+    }
+
+    .pub-link {
+      margin-top: auto;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+      color: var(--text);
+      font-weight: 800;
+      width: fit-content;
+    }
+
+    .project-card {
+      position: relative;
+      overflow: hidden;
+      min-height: 246px;
+    }
+
+    .project-card::before {
+      content: "";
+      position: absolute;
+      inset: -20% auto auto -6%;
+      width: 120px;
+      height: 120px;
+      border-radius: 28px;
+      transform: rotate(16deg);
+      background: linear-gradient(135deg, rgba(14,165,233,.14), rgba(124,58,237,.12));
+    }
+
+    .project-kicker {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: .82rem;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      color: var(--accent-2);
+      font-weight: 800;
+      margin-bottom: 14px;
+    }
+
+    .project-meta {
+      color: var(--muted);
+      line-height: 1.8;
+      margin: 10px 0 16px;
+    }
+
+    .project-links {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 18px;
+    }
+
+    .project-links a,
+    .link-pill {
+      text-decoration: none;
+      color: var(--text);
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      padding: 11px 14px;
+      font-weight: 700;
+      background: rgba(255,255,255,.60);
+    }
+    body.theme-dark .project-links a,
+    body.theme-dark .link-pill { background: rgba(255,255,255,.04); }
+
+    .timeline {
+      display: grid;
+      gap: 14px;
+      position: relative;
+      padding-inline-start: 14px;
+    }
+    .timeline::before {
+      content: "";
+      position: absolute;
+      top: 8px;
+      bottom: 8px;
+      inset-inline-start: 0;
+      width: 2px;
+      background: linear-gradient(180deg, var(--accent), rgba(124,58,237,.30), rgba(245,158,11,.16));
+    }
+
+    .timeline-item {
+      position: relative;
+      padding: 18px 20px 18px 22px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,.62);
+      border-radius: 20px;
+      margin-inline-start: 14px;
+    }
+    body.theme-dark .timeline-item { background: rgba(255,255,255,.04); }
+    .timeline-item::before {
+      content: "";
+      position: absolute;
+      width: 12px; height: 12px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      inset-inline-start: -28px;
+      top: 24px;
+      box-shadow: 0 0 0 8px rgba(14,165,233,.10);
+    }
+    .timeline-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 10px;
+    }
+    .timeline-top strong { font-size: 1.04rem; }
+    .timeline-top span { color: var(--accent); font-weight: 800; }
+
+    .review-list {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0,1fr));
+      gap: 10px;
+      margin-top: 16px;
+    }
+
+    .review-list span {
+      padding: 12px 14px;
+      border-radius: 16px;
+      background: rgba(255,255,255,.64);
+      border: 1px solid var(--border);
+      color: var(--text);
+      font-weight: 700;
+      font-size: .93rem;
+    }
+    body.theme-dark .review-list span { background: rgba(255,255,255,.04); }
+
+    .contact-panel {
+      display: grid;
+      gap: 14px;
+    }
+
+    .contact-link {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      border-radius: 18px;
+      padding: 16px 18px;
+      text-decoration: none;
+      color: var(--text);
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,.62);
+      font-weight: 800;
+    }
+    body.theme-dark .contact-link { background: rgba(255,255,255,.04); }
+    .contact-link small {
+      display:block;
+      color: var(--muted);
+      font-weight: 500;
+      margin-top: 4px;
+    }
+
+    footer {
+      padding: 26px 0 44px;
+    }
+
+    .footer-card {
+      padding: 20px 24px;
+      border: 1px solid var(--border);
+      background: var(--panel);
+      border-radius: 22px;
+      box-shadow: var(--shadow);
+    }
+
+    .footer-note {
+      color: var(--muted);
+      line-height: 1.8;
+      margin: 0;
+    }
+
+    .badge-row {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .tiny-badge {
+      padding: 10px 12px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,.64);
+      font-weight: 700;
+    }
+    body.theme-dark .tiny-badge { background: rgba(255,255,255,.04); }
+
+    .hidden { display: none !important; }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: .55s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 1120px) {
+      .hero-grid,
+      .about-grid,
+      .lead-grid,
+      .signature-grid,
+      .project-grid,
+      .pub-grid,
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+      .hero-main, .hero-side { min-height: auto; }
+      .pub-toolbar { grid-template-columns: 1fr; }
+      .filter-row { justify-content: flex-start; }
+    }
+
+    @media (max-width: 860px) {
+      .nav {
+        border-radius: 26px;
+        align-items: flex-start;
+        flex-direction: column;
+      }
+      .nav-links { justify-content: flex-start; }
+      .controls { width: 100%; justify-content: flex-start; }
+      .profile-top { align-items: flex-start; flex-direction: column; }
+      .mini-metrics,
+      .impact-strip,
+      .trust-grid,
+      .review-list {
+        grid-template-columns: 1fr;
+      }
+      h1 { max-width: none; }
+      .hero-main { padding: 26px; }
+      .hero-side { padding: 18px; }
+    }
+
+    @media (max-width: 560px) {
+      .container { width: min(100% - 18px, 1240px); }
+      .hero { padding-top: 44px; }
+      .hero-main, .card, .profile-card, .pub-card, .signature-card { padding: 18px; }
+      .nav-links a, .ghost-btn { width: 100%; justify-content: center; }
+      .controls, .nav-links { width: 100%; }
+      .hero-actions { flex-direction: column; }
+      .primary-btn, .secondary-btn { width: 100%; }
+      .project-links a, .link-pill { width: 100%; text-align: center; }
+    }
+
+    @media print {
+      .topbar, .progress, .blob, .hero-actions button, .hero-actions a[href="#publications"], .searchbox, .filter-row {
+        display: none !important;
+      }
+      body {
+        background: white !important;
+        color: #111 !important;
+      }
+      .panel, .card, .pub-card, .signature-card, .project-card, .footer-card, .profile-card {
+        box-shadow: none !important;
+        background: white !important;
+        border-color: #ddd !important;
+      }
+      a { color: #111 !important; text-decoration: none !important; }
+    }
+  </style>
 </head>
 <body>
-    <div class="card">
-        <h1>سلام! به وب‌سایت من خوش آمدید 🚀</h1>
-        <p>این صفحه با GitHub Pages ساخته شده است.</p>
+  <div class="progress" id="scrollProgress"></div>
+  <div class="blob"></div>
+
+  <div class="topbar container">
+    <nav class="nav">
+      <div class="brand">
+        <div class="brand-mark">AJ</div>
+        <div class="brand-title">
+          <strong>Amir Javadpour</strong>
+          <span data-fa="پژوهشگر ارشد امنیت سایبری" data-en="Senior Cybersecurity Researcher">پژوهشگر ارشد امنیت سایبری</span>
+        </div>
+      </div>
+
+      <div class="nav-links">
+        <a href="#about" data-fa="درباره" data-en="About">درباره</a>
+        <a href="#signature" data-fa="حوزه‌های شاخص" data-en="Signature Areas">حوزه‌های شاخص</a>
+        <a href="#publications" data-fa="مقالات" data-en="Publications">مقالات</a>
+        <a href="#projects" data-fa="پروژه‌ها" data-en="Projects">پروژه‌ها</a>
+        <a href="#leadership" data-fa="رهبری علمی" data-en="Academic Leadership">رهبری علمی</a>
+      </div>
+
+      <div class="controls">
+        <button class="ghost-btn" id="langToggle" aria-label="Toggle language">FA / EN</button>
+        <button class="ghost-btn" id="themeToggle" aria-label="Toggle theme">
+          <span data-fa="تم" data-en="Theme">تم</span>
+          <strong id="themeLabel">Light</strong>
+        </button>
+      </div>
+    </nav>
+  </div>
+
+  <main>
+    <section class="hero container reveal">
+      <div class="hero-grid">
+        <div class="panel hero-main">
+          <div>
+            <div class="eyebrow">
+              <i></i>
+              <span data-fa="پروفایل پژوهشی پیشرفته در امنیت سایبری" data-en="Advanced research profile in cybersecurity">پروفایل پژوهشی پیشرفته در امنیت سایبری</span>
+            </div>
+
+            <h1>
+              <span data-fa="امنیت سایبری" data-en="Cybersecurity">امنیت سایبری</span>
+              <span class="gradient-text" data-fa="برای شبکه‌های هوشمند، 5G/6G و کلاد-اج" data-en="for smart networks, 5G/6G, and cloud-edge systems">برای شبکه‌های هوشمند، 5G/6G و کلاد-اج</span>
+            </h1>
+
+            <p class="hero-copy"
+               data-fa="امیر جوادپور پژوهشگر ارشد امنیت سایبری با تمرکز بر دفاع پویا (MTD)، کاهش حملات DDoS، امنیت سرویس‌مش و کوبرنتیز، حفاظت از شبکه‌های 5G/6G، امنیت کلاد-فگ-اج، فریب سایبری و روش‌های یادگیری تقویتی برای دفاع خودکار است. این صفحه به‌صورت دو‌زبانه، حرفه‌ای و برندمحور طراحی شده تا هم هویت علمی و هم عمق فنی پژوهش را نمایش دهد."
+               data-en="Amir Javadpour is a senior cybersecurity researcher working on Moving Target Defense (MTD), DDoS mitigation, Kubernetes and service-mesh security, 5G/6G protection, cloud-fog-edge security, cyber deception, and reinforcement-learning-based autonomous defense. This bilingual page is designed as a high-end personal research brand, combining academic credibility with technical depth.">
+              امیر جوادپور پژوهشگر ارشد امنیت سایبری با تمرکز بر دفاع پویا (MTD)، کاهش حملات DDoS، امنیت سرویس‌مش و کوبرنتیز، حفاظت از شبکه‌های 5G/6G، امنیت کلاد-فگ-اج، فریب سایبری و روش‌های یادگیری تقویتی برای دفاع خودکار است. این صفحه به‌صورت دو‌زبانه، حرفه‌ای و برندمحور طراحی شده تا هم هویت علمی و هم عمق فنی پژوهش را نمایش دهد.
+            </p>
+
+            <div class="hero-actions">
+              <a class="primary-btn" href="#publications" data-fa="مشاهده ویترین مقالات" data-en="Explore publications">مشاهده ویترین مقالات</a>
+              <a class="secondary-btn" href="https://orcid.org/0000-0002-4932-1660" target="_blank" rel="noopener" data-fa="مشاهده ORCID" data-en="Open ORCID">مشاهده ORCID</a>
+              <a class="secondary-btn" href="https://scholar.google.com/citations?hl=en&user=c3HYEEYAAAAJ" target="_blank" rel="noopener" data-fa="مشاهده Google Scholar" data-en="Open Google Scholar">مشاهده Google Scholar</a>
+              <button class="secondary-btn" onclick="window.print()" data-fa="خروجی PDF / پرینت" data-en="Export PDF / Print">خروجی PDF / پرینت</button>
+            </div>
+
+            <div class="hero-badges">
+              <span class="pill" data-fa="Top 2% Scientist" data-en="Top 2% Scientist">Top 2% Scientist</span>
+              <span class="pill" data-fa="Ph.D. 2020 · Guangzhou University" data-en="Ph.D. 2020 · Guangzhou University">Ph.D. 2020 · Guangzhou University</span>
+              <span class="pill" data-fa="EU Project Collaborator" data-en="EU Project Collaborator">EU Project Collaborator</span>
+              <span class="pill" data-fa="MTD · DDoS · RL Defense" data-en="MTD · DDoS · RL Defense">MTD · DDoS · RL Defense</span>
+            </div>
+          </div>
+
+          <div class="mini-metrics">
+            <div class="metric">
+              <div class="value" data-counter="20">20+</div>
+              <div class="label" data-fa="خروجی‌های شاخص امنیتی و سایبری در ژورنال‌ها و کنفرانس‌های معتبر" data-en="Flagship cybersecurity outputs across strong journals and conferences">خروجی‌های شاخص امنیتی و سایبری در ژورنال‌ها و کنفرانس‌های معتبر</div>
+            </div>
+            <div class="metric">
+              <div class="value" data-counter="3">3</div>
+              <div class="label" data-fa="پروژه اروپایی شاخص: RIGOUROUS، INSPIRE-5Gplus، CHARITY" data-en="Major European collaborations: RIGOUROUS, INSPIRE-5Gplus, and CHARITY">پروژه اروپایی شاخص: RIGOUROUS، INSPIRE-5Gplus، CHARITY</div>
+            </div>
+            <div class="metric">
+              <div class="value" data-counter="35">35+</div>
+              <div class="label" data-fa="داوری و مشارکت علمی در مجلات معتبر بین‌المللی" data-en="Verified reviewing and academic service across international venues">داوری و مشارکت علمی در مجلات معتبر بین‌المللی</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel hero-side">
+          <div class="profile-card">
+            <div class="profile-top">
+              <div class="avatar">AJ</div>
+              <div>
+                <h2 class="profile-name">Amir Javadpour</h2>
+                <p class="profile-role"
+                   data-fa="Senior Cybersecurity Researcher<br>Computer & Network Security · Cloud/Edge · 5G/6G · SDN/NFV"
+                   data-en="Senior Cybersecurity Researcher<br>Computer & Network Security · Cloud/Edge · 5G/6G · SDN/NFV">
+                  Senior Cybersecurity Researcher<br>Computer & Network Security · Cloud/Edge · 5G/6G · SDN/NFV
+                </p>
+              </div>
+            </div>
+            <div class="trust-grid">
+              <div class="trust-item">
+                <strong data-fa="تمرکز اصلی" data-en="Core focus">تمرکز اصلی</strong>
+                <span data-fa="Moving Target Defense، امنیت شبکه، دفاع مبتنی بر RL، DDoS، فریب سایبری" data-en="Moving Target Defense, network security, RL-based defense, DDoS mitigation, cyber deception">Moving Target Defense، امنیت شبکه، دفاع مبتنی بر RL، DDoS، فریب سایبری</span>
+              </div>
+              <div class="trust-item">
+                <strong data-fa="بسترها" data-en="Platforms">بسترها</strong>
+                <span data-fa="Cloud, Fog, Edge, Kubernetes, Service Mesh, SDN, IoT, Beyond 5G/6G" data-en="Cloud, Fog, Edge, Kubernetes, Service Mesh, SDN, IoT, Beyond 5G/6G">Cloud, Fog, Edge, Kubernetes, Service Mesh, SDN, IoT, Beyond 5G/6G</span>
+              </div>
+              <div class="trust-item">
+                <strong data-fa="خروجی پژوهشی" data-en="Research profile">خروجی پژوهشی</strong>
+                <span data-fa="ژورنال‌های IEEE، Elsevier، Springer و کنفرانس‌هایی مانند GLOBECOM" data-en="IEEE, Elsevier, and Springer venues, including conferences such as GLOBECOM">ژورنال‌های IEEE، Elsevier، Springer و کنفرانس‌هایی مانند GLOBECOM</span>
+              </div>
+              <div class="trust-item">
+                <strong data-fa="نقش علمی" data-en="Academic role">نقش علمی</strong>
+                <span data-fa="داور، مؤلف، همکار پروژه‌های اروپایی و راهبر پژوهش‌های امنیتی پیشرفته" data-en="Reviewer, author, EU-project collaborator, and lead contributor to advanced cybersecurity studies">داور، مؤلف، همکار پروژه‌های اروپایی و راهبر پژوهش‌های امنیتی پیشرفته</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="radar">
+            <div class="radar-sweep"></div>
+            <div class="radar-dot d1"></div>
+            <div class="radar-dot d2"></div>
+            <div class="radar-dot d3"></div>
+            <div class="radar-copy">
+              <div>
+                <strong data-fa="Security Landscape" data-en="Security Landscape">Security Landscape</strong>
+                <span data-fa="MTD · Deception · Slice Isolation · Cloud/Fog Encryption" data-en="MTD · Deception · Slice Isolation · Cloud/Fog Encryption">MTD · Deception · Slice Isolation · Cloud/Fog Encryption</span>
+              </div>
+              <div class="link-pill" data-fa="Research Radar" data-en="Research Radar">Research Radar</div>
+            </div>
+          </div>
+
+          <div class="impact-strip">
+            <div class="impact-chip">
+              <strong>IEEE</strong>
+              <span data-fa="ژورنال‌ها و کنفرانس‌ها" data-en="journals & conferences">ژورنال‌ها و کنفرانس‌ها</span>
+            </div>
+            <div class="impact-chip">
+              <strong>EU</strong>
+              <span data-fa="پروژه‌های همکاری" data-en="project collaborations">پروژه‌های همکاری</span>
+            </div>
+            <div class="impact-chip">
+              <strong>RL+MTD</strong>
+              <span data-fa="دفاع هوشمند" data-en="intelligent defense">دفاع هوشمند</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="container reveal">
+      <div class="section-head">
+        <div class="section-title">
+          <div class="section-tag" data-fa="Scientific Identity" data-en="Scientific Identity">Scientific Identity</div>
+          <h2 data-fa="یک برند پژوهشی، نه فقط یک رزومه" data-en="A research brand, not just a résumé">یک برند پژوهشی، نه فقط یک رزومه</h2>
+          <p data-fa="تمرکز این صفحه فقط فهرست کردن سوابق نیست؛ هدف، نمایش منسجم از دیدگاه پژوهشی، خط فکری، و اثرگذاری علمی در امنیت شبکه، دفاع هوشمند و معماری‌های نوین ارتباطی است." data-en="This page is not only a list of credentials; it presents a coherent research identity, a technical vision, and an impact-oriented narrative across network security, intelligent defense, and next-generation communication architectures.">
+            تمرکز این صفحه فقط فهرست کردن سوابق نیست؛ هدف، نمایش منسجم از دیدگاه پژوهشی، خط فکری، و اثرگذاری علمی در امنیت شبکه، دفاع هوشمند و معماری‌های نوین ارتباطی است.
+          </p>
+        </div>
+      </div>
+
+      <div class="about-grid">
+        <div class="card">
+          <h3 data-fa="چشم‌انداز پژوهشی" data-en="Research vision">چشم‌انداز پژوهشی</h3>
+          <p data-fa="این مسیر پژوهشی بر یک ایده مرکزی استوار است: سیستم‌های شبکه‌ای آینده باید همزمان تاب‌آور، هوشمند، کم‌هزینه و قابل استقرار باشند. از این رو، پژوهش‌ها در امتداد چند محور به‌هم‌پیوسته پیش رفته‌اند؛ از دفاع پویا و ایزوله‌سازی برش‌های 5G گرفته تا امنیت سرویس‌مش، معماری‌های Encryption-as-a-Service، مدل‌سازی فریب سایبری و بهره‌گیری از یادگیری تقویتی برای تصمیم‌گیری دفاعی."
+             data-en="The research trajectory is built on one core idea: future networked systems must be resilient, intelligent, cost-aware, and deployable. This drives a set of tightly connected themes, from Moving Target Defense and 5G slice isolation to service-mesh security, Encryption-as-a-Service architectures, cyber deception modeling, and reinforcement-learning-based defensive decision-making.">
+            این مسیر پژوهشی بر یک ایده مرکزی استوار است: سیستم‌های شبکه‌ای آینده باید همزمان تاب‌آور، هوشمند، کم‌هزینه و قابل استقرار باشند. از این رو، پژوهش‌ها در امتداد چند محور به‌هم‌پیوسته پیش رفته‌اند؛ از دفاع پویا و ایزوله‌سازی برش‌های 5G گرفته تا امنیت سرویس‌مش، معماری‌های Encryption-as-a-Service، مدل‌سازی فریب سایبری و بهره‌گیری از یادگیری تقویتی برای تصمیم‌گیری دفاعی.
+          </p>
+
+          <div class="bio-lines">
+            <div class="bio-line">
+              <div class="bio-bullet">1</div>
+              <div>
+                <strong data-fa="پایه علمی" data-en="Academic foundation">پایه علمی</strong>
+                <p data-fa="دکتری علوم کامپیوتر (ریاضیات / امنیت سایبری) از Guangzhou University در سال 2020." data-en="Ph.D. in Computer Science (Mathematics / Cybersecurity) from Guangzhou University, completed in 2020.">دکتری علوم کامپیوتر (ریاضیات / امنیت سایبری) از Guangzhou University در سال 2020.</p>
+              </div>
+            </div>
+            <div class="bio-line">
+              <div class="bio-bullet">2</div>
+              <div>
+                <strong data-fa="تم‌های محوری" data-en="Signature themes">تم‌های محوری</strong>
+                <p data-fa="MTD، امنیت SDN/NFV، کاهش DDoS، امنیت ابری و لبه، فریب سایبری، امنیت Kubernetes و 5G/6G." data-en="MTD, SDN/NFV security, DDoS mitigation, cloud-edge security, cyber deception, Kubernetes security, and 5G/6G defense.">MTD، امنیت SDN/NFV، کاهش DDoS، امنیت ابری و لبه، فریب سایبری، امنیت Kubernetes و 5G/6G.</p>
+              </div>
+            </div>
+            <div class="bio-line">
+              <div class="bio-bullet">3</div>
+              <div>
+                <strong data-fa="اعتبار علمی" data-en="Scholarly credibility">اعتبار علمی</strong>
+                <p data-fa="حضور در فهرست World Top 2% Scientists و مشارکت در پروژه‌های اروپایی و داوری گسترده علمی." data-en="Included in the World Top 2% Scientists report, with strong European project participation and broad peer-review activity.">حضور در فهرست World Top 2% Scientists و مشارکت در پروژه‌های اروپایی و داوری گسترده علمی.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3 data-fa="کلیدواژه‌های تخصصی" data-en="Specialization map">کلیدواژه‌های تخصصی</h3>
+          <div class="chip-cloud">
+            <span class="chip">Moving Target Defense</span>
+            <span class="chip">DDoS Mitigation</span>
+            <span class="chip">5G / 6G Security</span>
+            <span class="chip">Cloud–Fog–Edge Security</span>
+            <span class="chip">Service Mesh Security</span>
+            <span class="chip">Kubernetes Security</span>
+            <span class="chip">Cyber Deception</span>
+            <span class="chip">Honeypots & Honeynets</span>
+            <span class="chip">Reinforcement Learning</span>
+            <span class="chip">SDN / NFV</span>
+            <span class="chip">IoT / IIoT Security</span>
+            <span class="chip">Encryption as a Service</span>
+          </div>
+
+          <div class="tools-row">
+            <span>IEEE TIFS</span>
+            <span>IEEE TNSM</span>
+            <span>IEEE IoTJ</span>
+            <span>JISA</span>
+            <span>Computers & Security</span>
+            <span>Globecom</span>
+            <span>TDSC</span>
+            <span>TII</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="signature" class="container reveal">
+      <div class="section-head">
+        <div class="section-title">
+          <div class="section-tag" data-fa="Signature Areas" data-en="Signature Areas">Signature Areas</div>
+          <h2 data-fa="سه محور شاخص که این پروفایل را متمایز می‌کنند" data-en="Three signature pillars that define this profile">سه محور شاخص که این پروفایل را متمایز می‌کنند</h2>
+          <p data-fa="به‌جای ارائه پراکنده از موضوعات، این وب‌سایت سه لایه اصلی از هویت پژوهشی را برجسته می‌کند: دفاع پویا برای شبکه‌های مدرن، امنیت هوشمند با یادگیری ماشین، و معماری‌های امن برای سرویس‌های ابری و لبه‌ای." data-en="Instead of showing disconnected topics, the site highlights three integrated layers of the research identity: dynamic defense for modern networks, intelligent security through machine learning, and secure architectures for cloud and edge services.">
+            به‌جای ارائه پراکنده از موضوعات، این وب‌سایت سه لایه اصلی از هویت پژوهشی را برجسته می‌کند: دفاع پویا برای شبکه‌های مدرن، امنیت هوشمند با یادگیری ماشین، و معماری‌های امن برای سرویس‌های ابری و لبه‌ای.
+          </p>
+        </div>
+      </div>
+
+      <div class="signature-grid">
+        <article class="signature-card">
+          <h3 data-fa="دفاع پویا و تاب‌آوری شبکه" data-en="Dynamic defense and network resilience">دفاع پویا و تاب‌آوری شبکه</h3>
+          <p data-fa="از SCEMA تا RL-based slice isolation و شافل‌کردن اتصال‌های لبه حیاتی، تمرکز بر این بوده که سطح حمله در لحظه تغییر کند و هزینه مهاجم افزایش یابد، بدون آنکه کارایی شبکه قربانی شود." data-en="From SCEMA to RL-based slice isolation and critical-edge shuffling, the work consistently focuses on changing the attack surface in motion, increasing adversarial cost without sacrificing network performance.">
+            از SCEMA تا RL-based slice isolation و شافل‌کردن اتصال‌های لبه حیاتی، تمرکز بر این بوده که سطح حمله در لحظه تغییر کند و هزینه مهاجم افزایش یابد، بدون آنکه کارایی شبکه قربانی شود.
+          </p>
+        </article>
+
+        <article class="signature-card">
+          <h3 data-fa="امنیت هوشمند مبتنی بر RL و نظریه بازی" data-en="Intelligent security with RL and game theory">امنیت هوشمند مبتنی بر RL و نظریه بازی</h3>
+          <p data-fa="در بسیاری از مقالات، مکانیزم دفاع صرفاً یک قاعده ثابت نیست؛ دفاع به‌صورت یک مسئله تصمیم‌گیری مدل شده که در آن عامل هوشمند با مشاهده وضعیت شبکه و الگوهای تهدید، بهترین سیاست دفاعی را می‌آموزد." data-en="Across many publications, defense is treated not as a fixed rule but as a decision process, where intelligent agents learn adaptive policies from network state, threat patterns, and operational constraints.">
+            در بسیاری از مقالات، مکانیزم دفاع صرفاً یک قاعده ثابت نیست؛ دفاع به‌صورت یک مسئله تصمیم‌گیری مدل شده که در آن عامل هوشمند با مشاهده وضعیت شبکه و الگوهای تهدید، بهترین سیاست دفاعی را می‌آموزد.
+          </p>
+        </article>
+
+        <article class="signature-card">
+          <h3 data-fa="معماری‌های امن برای کلاد، فگ و اج" data-en="Secure architectures for cloud, fog, and edge">معماری‌های امن برای کلاد، فگ و اج</h3>
+          <p data-fa="خط پژوهشی Encryption-as-a-Service، امنیت سرویس‌مش در Kubernetes و استقرار تست‌بدهای مبتنی بر Docker نشان می‌دهد که این فعالیت‌ها فقط نظری نیستند؛ بلکه بر استقرار عملی، مهندسی سیستم و قابلیت انتقال به سناریوهای واقعی متمرکزند." data-en="The Encryption-as-a-Service line, Kubernetes service-mesh security, and Docker-based testbed deployments show a strong orientation toward deployable systems, not only conceptual security models.">
+            خط پژوهشی Encryption-as-a-Service، امنیت سرویس‌مش در Kubernetes و استقرار تست‌بدهای مبتنی بر Docker نشان می‌دهد که این فعالیت‌ها فقط نظری نیستند؛ بلکه بر استقرار عملی، مهندسی سیستم و قابلیت انتقال به سناریوهای واقعی متمرکزند.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section id="publications" class="container reveal">
+      <div class="section-head">
+        <div class="section-title">
+          <div class="section-tag" data-fa="Publication Showcase" data-en="Publication Showcase">Publication Showcase</div>
+          <h2 data-fa="ویترین مقالات منتخب امنیت سایبری" data-en="Selected cybersecurity publications">ویترین مقالات منتخب امنیت سایبری</h2>
+          <p data-fa="در این بخش، مقالاتی انتخاب شده‌اند که بیشترین هم‌راستایی را با امنیت سایبری، DDoS، MTD، دفاع هوشمند، فریب سایبری، امنیت 5G/6G و معماری‌های امن ابری دارند. امکان جست‌وجو و فیلتر نیز اضافه شده تا صفحه فقط زیبا نباشد، بلکه کاربردی هم باشد." data-en="This showcase focuses on works most aligned with cybersecurity, DDoS mitigation, MTD, intelligent defense, cyber deception, 5G/6G security, and secure cloud-edge architectures. Search and category filters are included so the site is not only visually strong, but practically useful.">
+            در این بخش، مقالاتی انتخاب شده‌اند که بیشترین هم‌راستایی را با امنیت سایبری، DDoS، MTD، دفاع هوشمند، فریب سایبری، امنیت 5G/6G و معماری‌های امن ابری دارند. امکان جست‌وجو و فیلتر نیز اضافه شده تا صفحه فقط زیبا نباشد، بلکه کاربردی هم باشد.
+          </p>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="pub-toolbar">
+          <label class="searchbox">
+            <span>⌕</span>
+            <input id="pubSearch" type="text" data-fa-placeholder="جست‌وجو در عنوان، ژورنال یا کلیدواژه..." data-en-placeholder="Search title, venue, or keyword..." placeholder="جست‌وجو در عنوان، ژورنال یا کلیدواژه..." />
+          </label>
+          <div class="filter-row" id="filters">
+            <button class="chip-btn active" data-filter="all">All</button>
+            <button class="chip-btn" data-filter="mtd">MTD</button>
+            <button class="chip-btn" data-filter="ddos">DDoS</button>
+            <button class="chip-btn" data-filter="rl">RL</button>
+            <button class="chip-btn" data-filter="deception">Deception</button>
+            <button class="chip-btn" data-filter="cloud">Cloud / Edge</button>
+            <button class="chip-btn" data-filter="k8s">Kubernetes</button>
+          </div>
+        </div>
+        <div id="pubGrid" class="pub-grid"></div>
+      </div>
+    </section>
+
+    <section id="projects" class="container reveal">
+      <div class="section-head">
+        <div class="section-title">
+          <div class="section-tag" data-fa="International Collaborations" data-en="International Collaborations">International Collaborations</div>
+          <h2 data-fa="پروژه‌های اروپایی و مسیر اثرگذاری بین‌المللی" data-en="European projects and international impact">پروژه‌های اروپایی و مسیر اثرگذاری بین‌المللی</h2>
+          <p data-fa="این بخش نشان می‌دهد که خروجی‌های پژوهشی فقط در سطح مقاله باقی نمانده‌اند، بلکه در قالب همکاری‌های بین‌المللی و پروژه‌های دارای پشتوانه مالی نیز توسعه یافته‌اند." data-en="This section emphasizes that the research work is not limited to publications, but extends into funded collaborations and international project ecosystems.">
+            این بخش نشان می‌دهد که خروجی‌های پژوهشی فقط در سطح مقاله باقی نمانده‌اند، بلکه در قالب همکاری‌های بین‌المللی و پروژه‌های دارای پشتوانه مالی نیز توسعه یافته‌اند.
+          </p>
+        </div>
+      </div>
+
+      <div class="project-grid">
+        <div class="card project-card">
+          <div class="project-kicker">Horizon Europe</div>
+          <h3>RIGOUROUS</h3>
+          <p class="project-meta" data-fa="همکاری در پروژه Horizon Europe با تمرکز بر زیرساخت‌های هوشمند، اعتماد، استقرار و اکوسیستم‌های امن شبکه‌ای. این پروژه به‌عنوان یکی از نشانه‌های حضور فعال در شبکه پژوهش اروپایی در سایت برجسته شده است." data-en="Collaboration in a Horizon Europe project focused on trustworthy intelligent infrastructures, secure deployment, and advanced networked ecosystems. It is highlighted here as a marker of active engagement in the European research landscape.">
+            همکاری در پروژه Horizon Europe با تمرکز بر زیرساخت‌های هوشمند، اعتماد، استقرار و اکوسیستم‌های امن شبکه‌ای. این پروژه به‌عنوان یکی از نشانه‌های حضور فعال در شبکه پژوهش اروپایی در سایت برجسته شده است.
+          </p>
+          <div class="project-links">
+            <a href="https://rigourous.eu/" target="_blank" rel="noopener">rigourous.eu</a>
+            <span class="link-pill" data-fa="Grant Agreement 101095933" data-en="Grant Agreement 101095933">Grant Agreement 101095933</span>
+          </div>
+        </div>
+
+        <div class="card project-card">
+          <div class="project-kicker">Horizon 2020</div>
+          <h3>INSPIRE-5Gplus</h3>
+          <p class="project-meta" data-fa="پروژه‌ای با تمرکز بر 5G و beyond، سناریوهای استقرار، برش‌بندی شبکه و معماری‌های انعطاف‌پذیر. این فضا به‌طور مستقیم با پژوهش‌های ایزوله‌سازی اسلایس و دفاع در برابر DDoS هم‌راستا است." data-en="A project centered on 5G-and-beyond deployment scenarios, slicing, and flexible architectures. It aligns closely with the research line on slice isolation and DDoS-resilient security mechanisms.">
+            پروژه‌ای با تمرکز بر 5G و beyond، سناریوهای استقرار، برش‌بندی شبکه و معماری‌های انعطاف‌پذیر. این فضا به‌طور مستقیم با پژوهش‌های ایزوله‌سازی اسلایس و دفاع در برابر DDoS هم‌راستا است.
+          </p>
+          <div class="project-links">
+            <a href="https://www.inspire-5gplus.eu/" target="_blank" rel="noopener">inspire-5gplus.eu</a>
+            <span class="link-pill" data-fa="Grant No. 871808" data-en="Grant No. 871808">Grant No. 871808</span>
+          </div>
+        </div>
+
+        <div class="card project-card">
+          <div class="project-kicker">Horizon 2020</div>
+          <h3>CHARITY Consortium</h3>
+          <p class="project-meta" data-fa="نمونه‌ای از حضور در کنسرسیوم‌های اروپایی که نشان می‌دهد فعالیت پژوهشی در محیط بین‌المللی و چندشریکی نیز دنبال شده است." data-en="An example of participation in European consortia, highlighting experience with international multi-partner research environments.">
+            نمونه‌ای از حضور در کنسرسیوم‌های اروپایی که نشان می‌دهد فعالیت پژوهشی در محیط بین‌المللی و چندشریکی نیز دنبال شده است.
+          </p>
+          <div class="project-links">
+            <span class="link-pill" data-fa="Grant No. 101016509" data-en="Grant No. 101016509">Grant No. 101016509</span>
+            <span class="link-pill" data-fa="European Collaboration" data-en="European Collaboration">European Collaboration</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="leadership" class="container reveal">
+      <div class="section-head">
+        <div class="section-title">
+          <div class="section-tag" data-fa="Academic Leadership" data-en="Academic Leadership">Academic Leadership</div>
+          <h2 data-fa="داوری، عضویت‌های علمی و سیر حرفه‌ای" data-en="Reviewing, service, and professional trajectory">داوری، عضویت‌های علمی و سیر حرفه‌ای</h2>
+          <p data-fa="برای یک پروفایل حرفه‌ای قوی، فقط مقاله کافی نیست؛ نقش‌های داوری، ادیتوریال و مشارکت در جامعه علمی نیز باید به‌صورت شفاف نمایش داده شوند. این بخش دقیقاً برای همین طراحی شده است." data-en="A strong academic profile is not defined by publications alone. Reviewing, editorial activity, and broader scholarly service also matter — this section makes those dimensions visible.">
+            برای یک پروفایل حرفه‌ای قوی، فقط مقاله کافی نیست؛ نقش‌های داوری، ادیتوریال و مشارکت در جامعه علمی نیز باید به‌صورت شفاف نمایش داده شوند. این بخش دقیقاً برای همین طراحی شده است.
+          </p>
+        </div>
+      </div>
+
+      <div class="lead-grid">
+        <div class="card">
+          <h3 data-fa="مسیر حرفه‌ای و نقاط عطف" data-en="Trajectory and milestones">مسیر حرفه‌ای و نقاط عطف</h3>
+          <div class="timeline">
+            <div class="timeline-item">
+              <div class="timeline-top">
+                <strong data-fa="پایه‌گذاری مسیر پژوهشی در امنیت شبکه و سیستم‌ها" data-en="Research foundation in network and systems security">پایه‌گذاری مسیر پژوهشی در امنیت شبکه و سیستم‌ها</strong>
+                <span>2015–2020</span>
+              </div>
+              <p data-fa="از مقالات اولیه در شبکه، مانیتورینگ، سنسورها و کلاد تا تکمیل دکتری در علوم کامپیوتر و امنیت سایبری." data-en="From early publications in networking, sensing, and cloud systems to the completion of a Ph.D. in computer science and cybersecurity.">از مقالات اولیه در شبکه، مانیتورینگ، سنسورها و کلاد تا تکمیل دکتری در علوم کامپیوتر و امنیت سایبری.</p>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-top">
+                <strong data-fa="ورود جدی به MTD، DDoS و دفاع هوشمند" data-en="Strong expansion into MTD, DDoS, and intelligent defense">ورود جدی به MTD، DDoS و دفاع هوشمند</strong>
+                <span>2021–2024</span>
+              </div>
+              <p data-fa="شکل‌گیری مجموعه‌ای از آثار شاخص در SCEMA، TNSM، TDSC، Globecom و JISA با تمرکز بر دفاع تطبیقی و شبکه‌های نسل جدید." data-en="A strong body of work emerged across SCEMA, TNSM, TDSC, Globecom, and JISA, focused on adaptive defense and next-generation networks.">شکل‌گیری مجموعه‌ای از آثار شاخص در SCEMA، TNSM، TDSC، Globecom و JISA با تمرکز بر دفاع تطبیقی و شبکه‌های نسل جدید.</p>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-top">
+                <strong data-fa="تثبیت برند پژوهشی و گسترش به پروژه‌های اروپایی" data-en="Research-brand consolidation and European collaboration">تثبیت برند پژوهشی و گسترش به پروژه‌های اروپایی</strong>
+                <span>2024–2026</span>
+              </div>
+              <p data-fa="گسترش تحقیقات به EaaS، سرویس‌مش، پروژه‌های Horizon و انتشار مقالات جدید درباره path verification و شافلینگ اتصال‌های حیاتی لبه." data-en="The profile expands toward EaaS, service mesh security, Horizon collaborations, and newer work on secure path verification and critical-edge shuffling.">گسترش تحقیقات به EaaS، سرویس‌مش، پروژه‌های Horizon و انتشار مقالات جدید درباره path verification و شافلینگ اتصال‌های حیاتی لبه.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3 data-fa="خدمت علمی و نقش‌های ادیتوریال" data-en="Scholarly service and editorial roles">خدمت علمی و نقش‌های ادیتوریال</h3>
+          <p data-fa="فهرست زیر تنها بخشی از مجلاتی است که در آن‌ها داوری علمی یا نقش‌های حرفه‌ای انجام شده است. برای حفظ خوانایی صفحه، این بخش به‌صورت curated و انتخاب‌شده نمایش داده می‌شود." data-en="The list below shows a curated selection of venues where reviewing or editorial service has been reported. It is intentionally condensed to keep the page premium and readable.">
+            فهرست زیر تنها بخشی از مجلاتی است که در آن‌ها داوری علمی یا نقش‌های حرفه‌ای انجام شده است. برای حفظ خوانایی صفحه، این بخش به‌صورت curated و انتخاب‌شده نمایش داده می‌شود.
+          </p>
+
+          <div class="review-list">
+            <span>IEEE Transactions on Cloud Computing</span>
+            <span>IEEE Transactions on Network Science and Engineering</span>
+            <span>IEEE Internet of Things Journal</span>
+            <span>IEEE Transactions on Big Data</span>
+            <span>IEEE Transactions on Network and Service Management</span>
+            <span>ACM Transactions on Internet Technology</span>
+            <span>The Journal of Supercomputing</span>
+            <span>Sensors</span>
+            <span>Sustainability</span>
+            <span>Remote Sensing</span>
+            <span>Electronics</span>
+            <span>Applied Sciences</span>
+          </div>
+
+          <div class="bio-lines" style="margin-top:18px;">
+            <div class="bio-line">
+              <div class="bio-bullet">GE</div>
+              <div>
+                <strong data-fa="Guest Editor" data-en="Guest Editor">Guest Editor</strong>
+                <p>Cluster Computing</p>
+              </div>
+            </div>
+            <div class="bio-line">
+              <div class="bio-bullet">SI</div>
+              <div>
+                <strong data-fa="Special Issue" data-en="Special Issue">Special Issue</strong>
+                <p data-fa="Electronics — Deception Techniques for Advanced Cybersecurity in 5G/6G and Beyond Networks" data-en="Electronics — Deception Techniques for Advanced Cybersecurity in 5G/6G and Beyond Networks">Electronics — Deception Techniques for Advanced Cybersecurity in 5G/6G and Beyond Networks</p>
+              </div>
+            </div>
+            <div class="bio-line">
+              <div class="bio-bullet">EB</div>
+              <div>
+                <strong data-fa="Editorial Board" data-en="Editorial Board">Editorial Board</strong>
+                <p>CMC — Computers, Materials & Continua</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="container reveal">
+      <div class="section-head">
+        <div class="section-title">
+          <div class="section-tag" data-fa="Direct Links" data-en="Direct Links">Direct Links</div>
+          <h2 data-fa="ورود مستقیم به پروفایل‌های مرجع" data-en="Direct access to reference profiles">ورود مستقیم به پروفایل‌های مرجع</h2>
+          <p data-fa="برای استفاده حرفه‌ای‌تر، لینک‌های کلیدی به‌صورت واضح در صفحه قرار گرفته‌اند تا کاربر بتواند از سایت شخصی به پروفایل‌های مرجع و رسمی منتقل شود." data-en="For a stronger professional workflow, the page includes clean direct links to official reference profiles and major public identities.">
+            برای استفاده حرفه‌ای‌تر، لینک‌های کلیدی به‌صورت واضح در صفحه قرار گرفته‌اند تا کاربر بتواند از سایت شخصی به پروفایل‌های مرجع و رسمی منتقل شود.
+          </p>
+        </div>
+      </div>
+
+      <div class="lead-grid">
+        <div class="card contact-panel">
+          <a class="contact-link" href="https://orcid.org/0000-0002-4932-1660" target="_blank" rel="noopener">
+            <div>
+              ORCID
+              <small>0000-0002-4932-1660</small>
+            </div>
+            <span>↗</span>
+          </a>
+          <a class="contact-link" href="https://scholar.google.com/citations?hl=en&user=c3HYEEYAAAAJ" target="_blank" rel="noopener">
+            <div>
+              Google Scholar
+              <small data-fa="پروفایل عمومی استنادی و مقالات" data-en="Public citation and publication profile">پروفایل عمومی استنادی و مقالات</small>
+            </div>
+            <span>↗</span>
+          </a>
+          <a class="contact-link" href="https://rigourous.eu/" target="_blank" rel="noopener">
+            <div>
+              RIGOUROUS
+              <small>Horizon Europe Project</small>
+            </div>
+            <span>↗</span>
+          </a>
+          <a class="contact-link" href="https://www.inspire-5gplus.eu/" target="_blank" rel="noopener">
+            <div>
+              INSPIRE-5Gplus
+              <small>Horizon 2020 Project</small>
+            </div>
+            <span>↗</span>
+          </a>
+        </div>
+
+        <div class="card">
+          <h3 data-fa="چرا این نسخه بهتر است؟" data-en="Why this version is stronger">چرا این نسخه بهتر است؟</h3>
+          <p data-fa="این نسخه به‌صورت پیش‌فرض روشن طراحی شده، اما تم تاریک هم دارد. دوزبانه است، از نظر بصری حس premium دارد، بخش مقالات آن تعاملی است، برای PDF گرفتن آماده شده و به‌جای اینکه شبیه رزومه خام باشد، شبیه یک سایت حرفه‌ای برای یک پژوهشگر امنیت سایبری سطح بالا عمل می‌کند." data-en="This version is light-first, but still includes a dark theme. It is bilingual, visually premium, publication-aware, print-ready, and designed to feel like a serious personal website for a high-level cybersecurity researcher rather than a plain static résumé.">
+            این نسخه به‌صورت پیش‌فرض روشن طراحی شده، اما تم تاریک هم دارد. دوزبانه است، از نظر بصری حس premium دارد، بخش مقالات آن تعاملی است، برای PDF گرفتن آماده شده و به‌جای اینکه شبیه رزومه خام باشد، شبیه یک سایت حرفه‌ای برای یک پژوهشگر امنیت سایبری سطح بالا عمل می‌کند.
+          </p>
+          <div class="tools-row">
+            <span data-fa="Light-first UI" data-en="Light-first UI">Light-first UI</span>
+            <span data-fa="FA / EN Toggle" data-en="FA / EN Toggle">FA / EN Toggle</span>
+            <span data-fa="Theme Switch" data-en="Theme Switch">Theme Switch</span>
+            <span data-fa="Interactive Publications" data-en="Interactive Publications">Interactive Publications</span>
+            <span data-fa="Print to PDF" data-en="Print to PDF">Print to PDF</span>
+            <span data-fa="Single HTML File" data-en="Single HTML File">Single HTML File</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="container">
+    <div class="footer-card footer-grid">
+      <p class="footer-note" data-fa="طراحی‌شده به‌صورت تک‌فایل HTML با رویکرد پرسونال برندینگ پژوهشی، مناسب برای پروفایل شخصی، معرفی دانشگاهی، ارسال به پوزیشن‌ها و نمایش عمومی فعالیت‌های امنیت سایبری." data-en="Built as a single-file HTML profile with a research-branding approach, suitable for a personal site, academic introduction, position applications, and public presentation of cybersecurity work.">
+        طراحی‌شده به‌صورت تک‌فایل HTML با رویکرد پرسونال برندینگ پژوهشی، مناسب برای پروفایل شخصی، معرفی دانشگاهی، ارسال به پوزیشن‌ها و نمایش عمومی فعالیت‌های امنیت سایبری.
+      </p>
+      <div class="badge-row">
+        <span class="tiny-badge">Amir Javadpour</span>
+        <span class="tiny-badge">Cybersecurity</span>
+        <span class="tiny-badge">MTD / DDoS / RL</span>
+      </div>
     </div>
+  </footer>
+
+  <script>
+    const publications = [
+      {
+        title: "Moving target defense for DDoS mitigation with shuffling of critical edge(s) connections",
+        year: 2026,
+        venue: "Journal of Information Security and Applications",
+        authors: "A. Javadpour, F. Ja'fari, T. Taleb, C. Benzaïd",
+        tag: "MTD",
+        cat: ["mtd", "ddos"],
+        desc_fa: "تمرکز بر شافلینگ اتصال‌های حیاتی لبه برای کاهش اثر حملات DDoS و افزایش تاب‌آوری شبکه.",
+        desc_en: "Focuses on shuffling critical edge connections to mitigate DDoS impact and improve network resilience.",
+        link: "https://orcid.org/0000-0002-4932-1660"
+      },
+      {
+        title: "EaaS/PIN Synergy: Advances and Challenges Secure Path Verification",
+        year: 2026,
+        venue: "IEEE Internet of Things Journal",
+        authors: "A. Javadpour, F. Ja'fari, T. Taleb, C. Benzaïd",
+        tag: "Cloud / Edge",
+        cat: ["cloud"],
+        desc_fa: "کار روی هم‌افزایی EaaS/PIN و بحث path verification امن در زیرساخت‌های هوشمند.",
+        desc_en: "Explores the synergy of EaaS/PIN and secure path verification in intelligent infrastructures.",
+        link: "https://orcid.org/0000-0002-4932-1660"
+      },
+      {
+        title: "Beyond Reinforcement Learning for network security: A comprehensive survey and tutorial",
+        year: 2026,
+        venue: "Journal of Information Security and Applications",
+        authors: "A. Javadpour, F. Ja'fari, T. Taleb, F. Turkmen, C. Benzaïd",
+        tag: "RL",
+        cat: ["rl"],
+        desc_fa: "مرور و آموزش جامع درباره فراتر رفتن از RL کلاسیک برای امنیت شبکه.",
+        desc_en: "A broad survey and tutorial on moving beyond classical RL approaches in network security.",
+        link: "https://orcid.org/0000-0002-4932-1660"
+      },
+      {
+        title: "Improving the Security of Service Mesh in Kubernetes",
+        year: 2025,
+        venue: "IEEE ICPADS",
+        authors: "A. Javadpour, F. Ja'fari, T. Taleb, C. Benzaïd, L. Rosa, L. Cordeiro",
+        tag: "Kubernetes",
+        cat: ["k8s", "cloud"],
+        desc_fa: "تمرکز بر امنیت service mesh در محیط‌های Kubernetes و ریسک‌های استقرار میکروسرویسی.",
+        desc_en: "Targets service-mesh security challenges in Kubernetes and microservice deployments.",
+        link: "https://orcid.org/0000-0002-4932-1660"
+      },
+      {
+        title: "An optimized reinforcement learning based MTD mutation strategy for securing edge IoT against DDoS attack",
+        year: 2025,
+        venue: "Journal of Information Security and Applications",
+        authors: "A. Javadpour, F. Ja'fari, C. Benzaïd, T. Taleb",
+        tag: "RL + MTD",
+        cat: ["mtd", "ddos", "rl"],
+        desc_fa: "ترکیب RL و MTD برای محافظت از Edge IoT در برابر DDoS با استراتژی mutation بهینه.",
+        desc_en: "Combines RL and MTD to secure edge IoT against DDoS via an optimized mutation strategy.",
+        link: "https://orcid.org/0000-0002-4932-1660"
+      },
+      {
+        title: "Detecting malicious nodes using game theory and reinforcement learning in software-defined networks",
+        year: 2025,
+        venue: "International Journal of Information Security",
+        authors: "A. Javadpour, F. Ja'fari, T. Taleb, C. Benzaïd",
+        tag: "Game Theory",
+        cat: ["rl"],
+        desc_fa: "تشخیص نودهای مخرب در SDN با تلفیق نظریه بازی و یادگیری تقویتی.",
+        desc_en: "Detects malicious nodes in SDN by combining game theory and reinforcement learning.",
+        link: "https://orcid.org/0000-0002-4932-1660"
+      },
+      {
+        title: "Collaborative Reinforcement Learning for Cyber Defense: Analysis of Strategies, and Policies",
+        year: 2025,
+        venue: "Research collaboration output",
+        authors: "D. Rigoni, R. F. Cunha, F. Fransen, P. de Haan, A. Javadpour, F. Turkmen",
+        tag: "RL",
+        cat: ["rl"],
+        desc_fa: "تحلیل استراتژی‌ها و سیاست‌های دفاع سایبری با یادگیری تقویتی مشارکتی.",
+        desc_en: "Analyzes collaborative reinforcement-learning strategies and policies for cyber defense.",
+        link: "https://orcid.org/0000-0002-4932-1660"
+      },
+      {
+        title: "5G slice mutation to overcome distributed denial of service attacks using reinforcement learning",
+        year: 2024,
+        venue: "Security of Information and Networks Conference",
+        authors: "A. Javadpour, F. Ja'fari, T. Taleb, C. Benzaïd",
+        tag: "5G Security",
+        cat: ["ddos", "rl", "mtd"],
+        desc_fa: "استفاده از RL برای mutation اسلایس‌های 5G به‌منظور مقابله با DDoS.",
+        desc_en: "Uses reinforcement learning for 5G slice mutation to resist DDoS attacks.",
+        link: "https://orcid.org/0000-0002-4932-1660"
+      },
+      {
+        title: "Deploying Testbed Docker-based application for Encryption as a Service in Kubernetes",
+        year: 2024,
+        venue: "ICSTCC",
+        authors: "A. Javadpour, F. Ja'fari, T. Taleb, C. Benzaid, L. Rosa, P. Tomás, L. Cordeiro",
+        tag: "Kubernetes",
+        cat: ["k8s", "cloud"],
+        desc_fa: "استقرار تست‌بد مبتنی بر Docker برای EaaS در Kubernetes، با تمرکز بر قابلیت پیاده‌سازی.",
+        desc_en: "Deploys a Docker-based testbed for EaaS in Kubernetes with strong deployment relevance.",
+        link: "https://orcid.org/0000-0002-4932-1660"
+      },
+      {
+        title: "Encryption as a service (EaaS): Introducing the full-cloud-fog architecture for enhanced performance and security",
+        year: 2024,
+        venue: "IEEE Internet of Things Journal",
+        authors: "A. Javadpour, F. Ja'fari, T. Taleb, C. Benzaïd, Y. Bin, Y. Zhao",
+        tag: "Cloud / Edge",
+        cat: ["cloud"],
+        desc_fa: "ارائه معماری full-cloud-fog برای EaaS با نگاه همزمان به کارایی و امنیت.",
+        desc_en: "Introduces a full-cloud-fog architecture for EaaS with joint performance and security goals.",
+        link: "https://orcid.org/0000-0002-4932-1660"
+      },
+      {
+        title: "A comprehensive survey on cyber deception techniques to improve honeypot performance",
+        year: 2024,
+        venue: "Computers & Security",
+        authors: "A. Javadpour, F. Ja'fari, T. Taleb, M. Shojafar, C. Benzaïd",
+        tag: "Deception",
+        cat: ["deception"],
+        desc_fa: "مرور جامع تکنیک‌های فریب سایبری برای ارتقای عملکرد honeypot.",
+        desc_en: "A comprehensive survey of cyber deception techniques for stronger honeypot performance.",
+        link: "https://orcid.org/0000-0002-4932-1660"
+      },
+      {
+        title: "Encryption as a service for IoT: opportunities, challenges and solutions",
+        year: 2024,
+        venue: "IEEE Internet of Things Journal",
+        authors: "A. Javadpour, F. Ja'fari, T. Taleb, Y. Zhao, Y. Bin, C. Benzaïd",
+        tag: "IoT Security",
+        cat: ["cloud"],
+        desc_fa: "تحلیل فرصت‌ها، چالش‌ها و راه‌حل‌های EaaS برای IoT.",
+        desc_en: "Discusses opportunities, challenges, and solutions for EaaS in IoT systems.",
+        link: "https://orcid.org/0000-0002-4932-1660"
+      },
+      {
+        title: "A mathematical model for analyzing honeynets and their cyber deception techniques",
+        year: 2024,
+        venue: "ICECCS",
+        authors: "A. Javadpour, F. Ja'fari, T. Taleb, C. Benzaïd",
+        tag: "Deception",
+        cat: ["deception"],
+        desc_fa: "مدل‌سازی ریاضی honeynet و تحلیل تکنیک‌های فریب سایبری.",
+        desc_en: "Presents a mathematical framework for honeynet analysis and cyber deception techniques.",
+        link: "https://orcid.org/0000-0002-4932-1660"
+      },
+      {
+        title: "Reinforcement learning-based slice isolation against DDoS attacks in beyond 5G networks",
+        year: 2024,
+        venue: "IEEE Transactions on Network and Service Management",
+        authors: "A. Javadpour, F. Ja'fari, T. Taleb, C. Benzaïd",
+        tag: "RL + 5G",
+        cat: ["rl", "ddos", "mtd"],
+        desc_fa: "ایزوله‌سازی اسلایس در beyond 5G با RL برای مقابله با حملات DDoS.",
+        desc_en: "Uses reinforcement learning for slice isolation against DDoS in beyond-5G networks.",
+        link: "https://orcid.org/0000-0002-4932-1660"
+      },
+      {
+        title: "SCEMA: an SDN-oriented cost-effective edge-based MTD approach",
+        year: 2023,
+        venue: "IEEE Transactions on Information Forensics and Security",
+        authors: "A. Javadpour, F. Ja'fari, T. Taleb, M. Shojafar, B. Yang",
+        tag: "MTD",
+        cat: ["mtd", "ddos"],
+        desc_fa: "یکی از آثار شاخص در MTD با تمرکز بر لبه، SDN و هزینه-اثربخشی دفاع.",
+        desc_en: "A signature MTD contribution focusing on edge environments, SDN, and cost-effective defense.",
+        link: "https://orcid.org/0000-0002-4932-1660"
+      },
+      {
+        title: "Enhancing 5G network slicing: Slice isolation via actor-critic reinforcement learning with optimal graph features",
+        year: 2023,
+        venue: "IEEE GLOBECOM",
+        authors: "A. Javadpour, F. Ja'fari, T. Taleb, C. Benzaïd",
+        tag: "5G Security",
+        cat: ["rl", "ddos"],
+        desc_fa: "ایزوله‌سازی اسلایس 5G با actor-critic و ویژگی‌های گرافی بهینه.",
+        desc_en: "Applies actor-critic reinforcement learning and graph features for 5G slice isolation.",
+        link: "https://orcid.org/0000-0002-4932-1660"
+      },
+      {
+        title: "Cybersecurity fusion: Leveraging mafia game tactics and reinforcement learning for botnet detection",
+        year: 2023,
+        venue: "IEEE GLOBECOM",
+        authors: "A. Javadpour, F. Ja'fari, T. Taleb, H. R. Ahmadi, C. Benzaïd",
+        tag: "Botnet Detection",
+        cat: ["rl"],
+        desc_fa: "ترکیب تاکتیک‌های بازی مافیا و RL برای شناسایی botnet.",
+        desc_en: "Fuses mafia-game tactics and reinforcement learning for botnet detection.",
+        link: "https://orcid.org/0000-0002-4932-1660"
+      },
+      {
+        title: "A cost-effective MTD approach for DDoS attacks in software-defined networks",
+        year: 2023,
+        venue: "IEEE GLOBECOM",
+        authors: "A. Javadpour, F. Ja'fari, T. Taleb, M. Shojafar",
+        tag: "MTD",
+        cat: ["mtd", "ddos"],
+        desc_fa: "مدلی هزینه‌اثربخش برای استفاده از MTD در SDN در برابر حملات DDoS.",
+        desc_en: "Presents a cost-effective MTD mechanism in SDN for defending against DDoS attacks.",
+        link: "https://orcid.org/0000-0002-4932-1660"
+      },
+      {
+        title: "A Cost-Effective DDoS Protection Based on MTD in Software-Defined Networks",
+        year: 2023,
+        venue: "IEEE Transactions on Dependable and Secure Computing",
+        authors: "A. Javadpour, F. Ja'fari, W. Zhang",
+        tag: "MTD",
+        cat: ["mtd", "ddos"],
+        desc_fa: "اثر ژورنالی مهم در ترکیب DDoS protection و MTD برای SDN.",
+        desc_en: "An important journal article combining DDoS protection and MTD for SDN.",
+        link: "https://orcid.org/0000-0002-4932-1660"
+      },
+      {
+        title: "Toward a secure industrial wireless body area network focusing MAC layer protocols: an analytical review",
+        year: 2022,
+        venue: "IEEE Transactions on Industrial Informatics",
+        authors: "A. Javadpour, A. K. Sangaiah, F. Ja'fari, P. Pinto, H. Memarzadeh-Tehran, ...",
+        tag: "Industrial Security",
+        cat: ["cloud"],
+        desc_fa: "مرور تحلیلی بر امنیت در WBAN صنعتی با تمرکز بر MAC layer protocols.",
+        desc_en: "An analytical review of secure industrial wireless body area networks with emphasis on MAC-layer protocols.",
+        link: "https://orcid.org/0000-0002-4932-1660"
+      }
+    ];
+
+    const pubGrid = document.getElementById('pubGrid');
+    const pubSearch = document.getElementById('pubSearch');
+    const filterButtons = [...document.querySelectorAll('#filters .chip-btn')];
+
+    let currentFilter = 'all';
+    let currentLang = 'fa';
+
+    function pubCard(pub) {
+      const desc = currentLang === 'fa' ? pub.desc_fa : pub.desc_en;
+      return `
+        <article class="pub-card reveal-item" data-search="${[pub.title, pub.venue, pub.tag, pub.authors, ...pub.cat].join(' ').toLowerCase()}" data-cat="${pub.cat.join(' ')}">
+          <div class="pub-meta">
+            <span class="pub-year">${pub.year}</span>
+            <span class="pub-tag">${pub.tag}</span>
+          </div>
+          <h3 class="pub-title">${pub.title}</h3>
+          <p class="pub-authors">${pub.authors}</p>
+          <p class="pub-venue">${pub.venue}</p>
+          <p class="pub-desc">${desc}</p>
+          <a class="pub-link" href="${pub.link}" target="_blank" rel="noopener">${currentLang === 'fa' ? 'مشاهده مرجع / پروفایل' : 'Open source profile'} ↗</a>
+        </article>
+      `;
+    }
+
+    function renderPublications() {
+      const term = (pubSearch.value || '').trim().toLowerCase();
+      const filtered = publications.filter(pub => {
+        const hay = [pub.title, pub.venue, pub.tag, pub.authors, ...pub.cat].join(' ').toLowerCase();
+        const matchFilter = currentFilter === 'all' ? true : pub.cat.includes(currentFilter);
+        const matchSearch = !term || hay.includes(term);
+        return matchFilter && matchSearch;
+      });
+      pubGrid.innerHTML = filtered.map(pubCard).join('');
+      if (!filtered.length) {
+        pubGrid.innerHTML = `
+          <div class="card" style="grid-column:1/-1; text-align:center;">
+            <h3>${currentLang === 'fa' ? 'نتیجه‌ای پیدا نشد' : 'No matching result'}</h3>
+            <p>${currentLang === 'fa' ? 'عبارت جست‌وجو یا فیلتر را تغییر بده.' : 'Try changing the search term or filter.'}</p>
+          </div>
+        `;
+      }
+      activateRevealItems();
+    }
+
+    filterButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterButtons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        currentFilter = btn.dataset.filter;
+        renderPublications();
+      });
+    });
+
+    pubSearch.addEventListener('input', renderPublications);
+
+    function applyLanguage(lang) {
+      currentLang = lang;
+      document.documentElement.lang = lang;
+      document.documentElement.dir = lang === 'fa' ? 'rtl' : 'ltr';
+      document.body.style.direction = lang === 'fa' ? 'rtl' : 'ltr';
+
+      document.querySelectorAll('[data-fa][data-en]').forEach(el => {
+        el.innerHTML = lang === 'fa' ? el.dataset.fa : el.dataset.en;
+      });
+
+      document.querySelectorAll('[data-fa-placeholder][data-en-placeholder]').forEach(el => {
+        el.setAttribute('placeholder', lang === 'fa' ? el.dataset.faPlaceholder : el.dataset.enPlaceholder);
+      });
+
+      renderPublications();
+      localStorage.setItem('aj_lang', lang);
+    }
+
+    document.getElementById('langToggle').addEventListener('click', () => {
+      applyLanguage(currentLang === 'fa' ? 'en' : 'fa');
+    });
+
+    const themeLabel = document.getElementById('themeLabel');
+    function applyTheme(theme) {
+      const dark = theme === 'dark';
+      document.body.classList.toggle('theme-dark', dark);
+      themeLabel.textContent = dark ? 'Dark' : 'Light';
+      localStorage.setItem('aj_theme', theme);
+    }
+
+    document.getElementById('themeToggle').addEventListener('click', () => {
+      applyTheme(document.body.classList.contains('theme-dark') ? 'light' : 'dark');
+    });
+
+    function updateScrollProgress() {
+      const h = document.documentElement;
+      const max = h.scrollHeight - h.clientHeight;
+      const p = max > 0 ? h.scrollTop / max : 0;
+      document.getElementById('scrollProgress').style.transform = `scaleX(${p})`;
+    }
+    document.addEventListener('scroll', updateScrollProgress, { passive: true });
+    updateScrollProgress();
+
+    const sectionRevealObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    }, { threshold: 0.14 });
+
+    document.querySelectorAll('.reveal').forEach(el => sectionRevealObserver.observe(el));
+
+    function activateRevealItems() {
+      const itemObserver = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) entry.target.classList.add('visible');
+        });
+      }, { threshold: 0.12 });
+      document.querySelectorAll('.reveal-item').forEach(el => {
+        el.classList.add('reveal');
+        itemObserver.observe(el);
+      });
+    }
+
+    const counterObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        const el = entry.target;
+        if (el.dataset.done) return;
+        const target = parseInt(el.dataset.counter, 10);
+        const suffix = el.textContent.includes('+') ? '+' : '';
+        let n = 0;
+        const step = Math.max(1, Math.ceil(target / 28));
+        const timer = setInterval(() => {
+          n += step;
+          if (n >= target) {
+            n = target;
+            clearInterval(timer);
+            el.dataset.done = '1';
+          }
+          el.textContent = n + suffix;
+        }, 28);
+      });
+    }, { threshold: 0.55 });
+
+    document.querySelectorAll('[data-counter]').forEach(el => counterObserver.observe(el));
+
+    const savedLang = localStorage.getItem('aj_lang') || 'fa';
+    const savedTheme = localStorage.getItem('aj_theme') || 'light';
+    applyLanguage(savedLang);
+    applyTheme(savedTheme);
+    renderPublications();
+  </script>
 </body>
 </html>
